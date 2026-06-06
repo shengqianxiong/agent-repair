@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', Arial, sans-serif;
+}
+
+.page-container {
+  padding: 16px;
+}
+
+.search-bar {
+  margin-bottom: 16px;
+}
+
+.table-toolbar {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination-wrap {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-page {
+  max-width: 800px;
+}
+
+.card-stat {
+  text-align: center;
+}
+
+.card-stat .value {
+  font-size: 28px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.card-stat .label {
+  margin-top: 8px;
+  color: #909399;
+  font-size: 14px;
+}
