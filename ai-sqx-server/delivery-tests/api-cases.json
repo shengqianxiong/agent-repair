@@ -1,0 +1,352 @@
+{
+  "description": "交付项目 #1 API 集成测试（Worker 本地生成）",
+  "baseUrl": "http://127.0.0.1:9294/sqx_fast/",
+  "cases": [
+    {
+      "name": "API 文档可访问",
+      "method": "GET",
+      "path": "/doc.html",
+      "expectStatus": 200
+    },
+    {
+      "name": "OpenAPI JSON",
+      "method": "GET",
+      "path": "/v3/api-docs",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/dashboard/stats",
+      "method": "GET",
+      "path": "/admin/dashboard/stats",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/dashboard/recent-orders",
+      "method": "GET",
+      "path": "/admin/dashboard/recent-orders",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/dashboard/recent-bookings",
+      "method": "GET",
+      "path": "/admin/dashboard/recent-bookings",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/product/list",
+      "method": "GET",
+      "path": "/admin/product/list",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/product/detail/1",
+      "method": "GET",
+      "path": "/admin/product/detail/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/product/save",
+      "method": "POST",
+      "path": "/admin/product/save",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/product/update",
+      "method": "GET",
+      "path": "/admin/product/update",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/product/delete/1",
+      "method": "GET",
+      "path": "/admin/product/delete/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/product/category/list",
+      "method": "GET",
+      "path": "/admin/product/category/list",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/product/category/save",
+      "method": "POST",
+      "path": "/admin/product/category/save",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/package/list",
+      "method": "GET",
+      "path": "/admin/package/list",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/package/save",
+      "method": "POST",
+      "path": "/admin/package/save",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/package/update",
+      "method": "GET",
+      "path": "/admin/package/update",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/package/delete/1",
+      "method": "GET",
+      "path": "/admin/package/delete/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/order/list",
+      "method": "GET",
+      "path": "/admin/order/list",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/order/detail/1",
+      "method": "GET",
+      "path": "/admin/order/detail/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/order/status",
+      "method": "GET",
+      "path": "/admin/order/status",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/order/refund/1",
+      "method": "GET",
+      "path": "/admin/order/refund/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/booking/list",
+      "method": "GET",
+      "path": "/admin/booking/list",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/booking/detail/1",
+      "method": "GET",
+      "path": "/admin/booking/detail/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/booking/confirm/1",
+      "method": "GET",
+      "path": "/admin/booking/confirm/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/booking/cancel/1",
+      "method": "GET",
+      "path": "/admin/booking/cancel/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/booking/assign-table",
+      "method": "GET",
+      "path": "/admin/booking/assign-table",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/activity/list",
+      "method": "GET",
+      "path": "/admin/activity/list",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/activity/save",
+      "method": "POST",
+      "path": "/admin/activity/save",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/activity/update",
+      "method": "GET",
+      "path": "/admin/activity/update",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/activity/delete/1",
+      "method": "GET",
+      "path": "/admin/activity/delete/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/activity/status/1",
+      "method": "GET",
+      "path": "/admin/activity/status/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/user/list",
+      "method": "GET",
+      "path": "/admin/user/list",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/user/detail/1",
+      "method": "GET",
+      "path": "/admin/user/detail/1",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/product/",
+      "method": "GET",
+      "path": "/admin/product/",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /admin/product/category/",
+      "method": "GET",
+      "path": "/admin/product/category/",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    },
+    {
+      "name": "PRD API /app/product/",
+      "method": "GET",
+      "path": "/app/product/",
+      "expectStatus": [
+        200,
+        401,
+        403
+      ]
+    }
+  ]
+}
