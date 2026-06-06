@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>com.sqx</groupId>
-            <artifactId>sqx-bar</artifactId>
+            <artifactId>sqx-app</artifactId>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

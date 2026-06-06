@@ -16,6 +16,7 @@
         <module>sqx-framework</module>
         <module>sqx-modules</module>
         <module>sqx-admin</module>
+        <module>delivery-tests</module>
     </modules>
 
     <properties>
@@ -50,7 +51,12 @@
             </dependency>
             <dependency>
                 <groupId>com.sqx</groupId>
-                <artifactId>sqx-bar</artifactId>
+                <artifactId>sqx-app</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sqx</groupId>
+                <artifactId>sqx-admin</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

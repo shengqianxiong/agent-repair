@@ -13,6 +13,6 @@
     <name>sqx-modules</name>
 
     <modules>
-        <module>sqx-bar</module>
+        <module>sqx-app</module>
     </modules>
 </project>

@@ -8,8 +8,8 @@
         <artifactId>sqx-modules</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>sqx-bar</artifactId>
-    <name>sqx-bar</name>
+    <artifactId>sqx-app</artifactId>
+    <name>sqx-app</name>
     <description>酒吧点餐业务模块</description>
 
     <dependencies>
@@ -21,6 +21,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
