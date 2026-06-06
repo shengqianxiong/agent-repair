@@ -1,0 +1,12 @@
+/* 主题变量覆盖，需在 theme.scss 之前定义 */
+$u-primary: #409eff;
+$u-warning: #e6a23c;
+$u-success: #67c23a;
+$u-error: #f56c6c;
+$u-info: #909399;
+$u-main-color: #303133;
+$u-content-color: #606266;
+$u-tips-color: #909399;
+$u-bg-color: #f5f7fa;
+
+@import 'uview-plus/theme.scss';
