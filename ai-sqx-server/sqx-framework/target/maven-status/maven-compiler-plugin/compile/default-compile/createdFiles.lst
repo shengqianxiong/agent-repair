@@ -1,6 +1,0 @@
-com/sqx/framework/shiro/AdminRealm.class
-com/sqx/framework/config/WebMvcConfig.class
-com/sqx/framework/shiro/ShiroConfig.class
-com/sqx/framework/config/MybatisPlusConfig.class
-com/sqx/framework/config/GlobalExceptionHandler.class
-com/sqx/framework/interceptor/LoginInterceptor.class

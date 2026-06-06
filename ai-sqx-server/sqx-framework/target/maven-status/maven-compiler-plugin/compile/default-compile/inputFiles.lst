@@ -1,6 +1,0 @@
-/workspace/ai-sqx-server/sqx-framework/src/main/java/com/sqx/framework/shiro/ShiroConfig.java
-/workspace/ai-sqx-server/sqx-framework/src/main/java/com/sqx/framework/interceptor/LoginInterceptor.java
-/workspace/ai-sqx-server/sqx-framework/src/main/java/com/sqx/framework/config/MybatisPlusConfig.java
-/workspace/ai-sqx-server/sqx-framework/src/main/java/com/sqx/framework/shiro/AdminRealm.java
-/workspace/ai-sqx-server/sqx-framework/src/main/java/com/sqx/framework/config/WebMvcConfig.java
-/workspace/ai-sqx-server/sqx-framework/src/main/java/com/sqx/framework/config/GlobalExceptionHandler.java
