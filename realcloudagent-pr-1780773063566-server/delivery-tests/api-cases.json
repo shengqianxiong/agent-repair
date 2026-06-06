@@ -1,0 +1,42 @@
+{
+  "description": "RealCloudAgent-PR-1780773063566 极简登录 API 集成测试",
+  "baseUrl": "http://127.0.0.1:9294/sqx_fast/",
+  "cases": [
+    {
+      "name": "管理端登录",
+      "method": "POST",
+      "path": "/admin/user/login",
+      "body": {
+        "username": "admin",
+        "password": "123456"
+      },
+      "expectStatus": 200,
+      "expectCode": 0
+    },
+    {
+      "name": "用户端登录",
+      "method": "POST",
+      "path": "/app/user/login",
+      "body": {
+        "username": "user",
+        "password": "123456"
+      },
+      "expectStatus": 200,
+      "expectCode": 0
+    },
+    {
+      "name": "管理端用户信息（未登录）",
+      "method": "GET",
+      "path": "/admin/user/info",
+      "expectStatus": 200,
+      "expectCode": 401
+    },
+    {
+      "name": "用户端用户信息（未登录）",
+      "method": "GET",
+      "path": "/app/user/info",
+      "expectStatus": 200,
+      "expectCode": 401
+    }
+  ]
+}
