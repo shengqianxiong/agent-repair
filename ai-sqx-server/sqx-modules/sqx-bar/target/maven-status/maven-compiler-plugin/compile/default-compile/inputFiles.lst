@@ -1,0 +1,16 @@
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/service/impl/BarProductCategoryServiceImpl.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/domain/bo/ProductQueryBo.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/service/impl/BarProductServiceImpl.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/db/mapper/BarProductCategoryMapper.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/domain/bo/CategorySaveBo.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/db/mapper/BarProductMapper.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/domain/vo/ProductCategoryVo.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/db/entity/BarProductCategory.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/controller/app/AppProductController.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/controller/admin/AdminProductController.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/domain/bo/ProductSaveBo.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/controller/admin/AdminProductCategoryController.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/service/BarProductCategoryService.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/service/BarProductService.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/db/entity/BarProduct.java
+/workspace/ai-sqx-server/sqx-modules/sqx-bar/src/main/java/com/sqx/modules/bar/domain/vo/ProductVo.java
