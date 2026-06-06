@@ -1,0 +1,39 @@
+{
+  "name": "云享生活",
+  "appid": "__UNI__BARORDER",
+  "description": "酒吧点餐小程序",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "mp-weixin": {
+    "appid": "",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "minified": true
+    },
+    "usingComponents": true,
+    "permission": {
+      "scope.userLocation": {
+        "desc": "用于发现附近酒友"
+      }
+    },
+    "requiredPrivateInfos": ["getLocation"]
+  },
+  "h5": {
+    "title": "云享生活",
+    "router": {
+      "mode": "hash"
+    },
+    "devServer": {
+      "port": 8080,
+      "proxy": {
+        "/sqx_fast": {
+          "target": "http://127.0.0.1:9294",
+          "changeOrigin": true
+        }
+      }
+    }
+  },
+  "vueVersion": "3"
+}
