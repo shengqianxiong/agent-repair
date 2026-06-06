@@ -1,0 +1,75 @@
+{
+  "baseUrl": "http://127.0.0.1:9295/sqx_fast",
+  "cases": [
+    {
+      "name": "用户端-账号登录",
+      "method": "POST",
+      "path": "/app/account/login",
+      "body": {
+        "username": "user01",
+        "password": "password"
+      },
+      "expectStatus": 200
+    },
+    {
+      "name": "用户端-获取当前用户信息",
+      "method": "GET",
+      "path": "/app/account/info",
+      "expectStatus": 200,
+      "optional": true
+    },
+    {
+      "name": "管理端-管理员登录",
+      "method": "POST",
+      "path": "/admin/account/login",
+      "body": {
+        "username": "admin",
+        "password": "admin123"
+      },
+      "expectStatus": 200
+    },
+    {
+      "name": "管理端-账号列表",
+      "method": "GET",
+      "path": "/admin/account/list?page=1&pageSize=10",
+      "expectStatus": 200,
+      "optional": true
+    },
+    {
+      "name": "管理端-账号详情",
+      "method": "GET",
+      "path": "/admin/account/detail/1",
+      "expectStatus": 200,
+      "optional": true
+    },
+    {
+      "name": "管理端-新增账号",
+      "method": "POST",
+      "path": "/admin/account/save",
+      "body": {
+        "username": "probe_user",
+        "password": "123456"
+      },
+      "expectStatus": 200,
+      "optional": true
+    },
+    {
+      "name": "管理端-编辑账号",
+      "method": "PUT",
+      "path": "/admin/account/update",
+      "body": {
+        "id": 2,
+        "status": 1
+      },
+      "expectStatus": 200,
+      "optional": true
+    },
+    {
+      "name": "管理端-删除账号",
+      "method": "DELETE",
+      "path": "/admin/account/delete/2",
+      "expectStatus": 200,
+      "optional": true
+    }
+  ]
+}
