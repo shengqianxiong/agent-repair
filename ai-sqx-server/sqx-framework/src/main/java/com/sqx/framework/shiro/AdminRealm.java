@@ -27,7 +27,24 @@ public class AdminRealm extends AuthorizingRealm {
                 "bar:product:update",
                 "bar:product:delete",
                 "bar:category:list",
-                "bar:category:save"
+                "bar:category:save",
+                "bar:dashboard:stats",
+                "bar:order:list",
+                "bar:order:detail",
+                "bar:order:update",
+                "bar:order:refund",
+                "bar:booking:list",
+                "bar:booking:detail",
+                "bar:booking:confirm",
+                "bar:booking:cancel",
+                "bar:booking:assign",
+                "bar:table:list",
+                "bar:table:save",
+                "bar:table:update",
+                "bar:activity:list",
+                "bar:activity:save",
+                "bar:activity:update",
+                "bar:activity:delete"
         )));
         return info;
     }
