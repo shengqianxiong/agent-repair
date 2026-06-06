@@ -1,0 +1,66 @@
+{
+  "description": "RealCloudAgent 极简登录 Demo API 集成测试",
+  "baseUrl": "http://127.0.0.1:9294/sqx_fast",
+  "cases": [
+    {
+      "name": "管理端登录 - 成功",
+      "method": "POST",
+      "path": "/admin/auth/login",
+      "body": {
+        "username": "admin",
+        "password": "123456"
+      },
+      "expectStatus": 200,
+      "expectBody": {
+        "code": 0,
+        "data": {
+          "token": "admin:1",
+          "username": "admin"
+        }
+      }
+    },
+    {
+      "name": "管理端登录 - 密码错误",
+      "method": "POST",
+      "path": "/admin/auth/login",
+      "body": {
+        "username": "admin",
+        "password": "wrong"
+      },
+      "expectStatus": 200,
+      "expectBody": {
+        "code": 500
+      }
+    },
+    {
+      "name": "用户端登录 - 成功",
+      "method": "POST",
+      "path": "/app/auth/login",
+      "body": {
+        "username": "user",
+        "password": "123456"
+      },
+      "expectStatus": 200,
+      "expectBody": {
+        "code": 0,
+        "data": {
+          "token": "uid:1",
+          "username": "user"
+        }
+      }
+    },
+    {
+      "name": "用户端登录 - 密码错误",
+      "method": "POST",
+      "path": "/app/auth/login",
+      "body": {
+        "username": "user",
+        "password": "wrong"
+      },
+      "expectStatus": 200,
+      "expectBody": {
+        "code": 500
+      }
+    }
+  ]
+}
