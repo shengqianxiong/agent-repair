@@ -5,15 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.sqx</groupId>
-        <artifactId>ai-sqx-server</artifactId>
+        <artifactId>sqx-modules</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>sqx-modules</artifactId>
-    <packaging>pom</packaging>
-    <name>sqx-modules</name>
+    <artifactId>sqx-app</artifactId>
+    <name>sqx-app</name>
+    <description>用户端业务聚合模块</description>
 
-    <modules>
-        <module>sqx-bar</module>
-        <module>sqx-app</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.sqx</groupId>
+            <artifactId>sqx-bar</artifactId>
+        </dependency>
+    </dependencies>
 </project>
