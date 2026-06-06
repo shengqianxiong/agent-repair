@@ -1,0 +1,60 @@
+{
+  "description": "极简登录账号管理 API 集成探测用例",
+  "baseUrl": "http://127.0.0.1:9295/sqx_fast/",
+  "cases": [
+    {
+      "name": "用户端登录",
+      "method": "POST",
+      "path": "/app/account/login",
+      "expectStatus": 200
+    },
+    {
+      "name": "用户端当前用户信息（需登录）",
+      "method": "GET",
+      "path": "/app/account/info",
+      "expectStatus": [200, 401],
+      "optional": true
+    },
+    {
+      "name": "管理端管理员登录",
+      "method": "POST",
+      "path": "/admin/account/login",
+      "expectStatus": 200
+    },
+    {
+      "name": "管理端账号列表",
+      "method": "GET",
+      "path": "/admin/account/list",
+      "expectStatus": [200, 401],
+      "optional": true
+    },
+    {
+      "name": "管理端账号详情",
+      "method": "GET",
+      "path": "/admin/account/detail/1",
+      "expectStatus": [200, 401],
+      "optional": true
+    },
+    {
+      "name": "管理端新增账号",
+      "method": "POST",
+      "path": "/admin/account/save",
+      "expectStatus": [200, 401],
+      "optional": true
+    },
+    {
+      "name": "管理端编辑账号",
+      "method": "PUT",
+      "path": "/admin/account/update",
+      "expectStatus": [200, 401],
+      "optional": true
+    },
+    {
+      "name": "管理端删除账号",
+      "method": "DELETE",
+      "path": "/admin/account/delete/2",
+      "expectStatus": [200, 401],
+      "optional": true
+    }
+  ]
+}
