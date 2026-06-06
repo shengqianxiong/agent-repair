@@ -1,0 +1,26 @@
+{
+  "project": "RealCloudAgent-1780772159829",
+  "baseUrl": "http://127.0.0.1:9294/sqx_fast/",
+  "cases": [
+    {
+      "name": "管理端登录",
+      "method": "POST",
+      "path": "admin/auth/login",
+      "body": {
+        "username": "admin",
+        "password": "123456"
+      },
+      "expectCode": 0
+    },
+    {
+      "name": "用户端登录",
+      "method": "POST",
+      "path": "app/auth/login",
+      "body": {
+        "username": "user",
+        "password": "123456"
+      },
+      "expectCode": 0
+    }
+  ]
+}
