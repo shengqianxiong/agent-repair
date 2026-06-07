@@ -1,0 +1,485 @@
+{
+  "projectName": "jiuba",
+  "projectDescription": "酒吧点餐前端",
+  "platform": {
+    "mobile": {
+      "dir": "jiuba-app",
+      "port": 8080,
+      "stack": "uni-app + Vue 3 + uview-plus"
+    }
+  },
+  "designTokens": {
+    "colors": {
+      "primary": "#7B61FF",
+      "primaryDark": "#6B35FF",
+      "primaryLight": "#EBE4FF",
+      "primaryGradient": "linear-gradient(135deg, #7246F2 0%, #9D7BFF 100%)",
+      "secondary": "#A286FF",
+      "background": "#F8F9FB",
+      "backgroundAlt": "#F8F8FA",
+      "cardBg": "#FFFFFF",
+      "surface": "#F1EEFF",
+      "inputBg": "#F7F7F7",
+      "textPrimary": "#333333",
+      "textMain": "#1A1A1A",
+      "textSecondary": "#666666",
+      "textTertiary": "#999999",
+      "textLight": "#CCCCCC",
+      "textOnPrimary": "#FFFFFF",
+      "border": "#EEEEEE",
+      "divider": "#F0F0F0",
+      "danger": "#FF4D4F",
+      "success": "#52C41A",
+      "successAlt": "#00C08B",
+      "warning": "#FAAD14",
+      "memberPriceBg": "#FFE4E1",
+      "memberPriceText": "#E64340",
+      "tagBg": "#F5F5F5",
+      "genderFemale": "#FF69B4",
+      "iconBgPurple": "#F0EDFF",
+      "iconBgPink": "#FFEDED",
+      "bannerBg": "#F2F1F0",
+      "badgeRed": "#FF4D4F"
+    },
+    "typography": {
+      "fontFamily": "PingFang SC, -apple-system, sans-serif",
+      "fontSize": {
+        "xs": "12px",
+        "sm": "14px",
+        "base": "16px",
+        "lg": "18px",
+        "xl": "20px",
+        "xxl": "24px",
+        "huge": "28px",
+        "display": "48px"
+      },
+      "fontWeight": {
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "lineHeight": {
+        "tight": 1.2,
+        "normal": 1.5,
+        "relaxed": 1.8
+      }
+    },
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "12px",
+      "base": "16px",
+      "lg": "20px",
+      "xl": "24px",
+      "xxl": "32px",
+      "pagePadding": "16px",
+      "cardPadding": "20px",
+      "cardGap": "12px",
+      "sectionGap": "24px"
+    },
+    "radius": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "12px",
+      "lg": "16px",
+      "xl": "20px",
+      "xxl": "24px",
+      "card": "24px",
+      "button": "24px",
+      "pill": "100px",
+      "full": "9999px",
+      "image": "16px",
+      "tag": "10px"
+    },
+    "shadows": {
+      "card": "0 4px 16px rgba(0, 0, 0, 0.04)",
+      "cardPurple": "0 4px 16px rgba(123, 97, 255, 0.08)",
+      "button": "0 4px 12px rgba(123, 97, 255, 0.25)",
+      "floatBar": "0 8px 24px rgba(0, 0, 0, 0.08)",
+      "bottomBar": "0 -4px 15px rgba(0, 0, 0, 0.08)",
+      "fab": "0 4px 15px rgba(123, 97, 255, 0.3)"
+    }
+  },
+  "pages": [
+    {
+      "name": "orderDetail",
+      "title": "订单详情",
+      "path": "/pages/order/detail",
+      "type": "mobile",
+      "imageIndex": 1,
+      "layout": "纵向滚动布局，浅灰背景上叠放多个白色圆角卡片，底部固定操作栏。顶部自定义导航栏，状态区居中展示，取餐号大卡片突出显示，商品清单与订单信息依次排列。",
+      "components": [
+        {"name": "CustomNavBar", "description": "左侧返回箭头、居中标题「订单详情」、右侧分享图标，紫色文字与图标", "styles": "背景透明，高度44px"},
+        {"name": "StatusSection", "description": "订单状态徽章「等待出餐中」+ 预计时间文案", "styles": "居中布局，徽章浅紫底#F0E9FF，紫色文字"},
+        {"name": "PickupCard", "description": "取餐号A086大号展示，待制作/制作中统计，「向店员展示取餐码」主按钮", "styles": "白色大卡片圆角24px，取餐号48px紫色加粗，按钮紫色胶囊带阴影"},
+        {"name": "OrderItemsCard", "description": "门店信息、商品列表（缩略图+名称+规格+数量+单价）、费用明细、合计金额", "styles": "白色卡片，优惠红色，合计紫色大号字体"},
+        {"name": "OrderInfoCard", "description": "订单编号、下单时间、支付方式（微信图标）、备注信息", "styles": "键值对行布局，灰色标签深色值"},
+        {"name": "FooterLinks", "description": "联系门店、售后帮助两个链接，中间竖线分隔", "styles": "居中水平排列，图标+文字"},
+        {"name": "BottomActionBar", "description": "实付金额展示、「再来一单」描边按钮、「订单详情卡」实心按钮", "styles": "白色背景顶部阴影，flex横向布局"}
+      ],
+      "navigation": {"from": ["myOrders", "confirmOrder"], "to": ["pickupCode", "reorder", "contactStore"]}
+    },
+    {
+      "name": "storedWine",
+      "title": "我的存酒",
+      "path": "/pages/wine/stored",
+      "type": "mobile",
+      "imageIndex": 2,
+      "layout": "顶部导航+搜索框+列表标题行+垂直卡片流。每张存酒卡片上部为酒水实物图，下部白色信息区含名称、分类、存入时间与操作按钮。",
+      "components": [
+        {"name": "AppNavBar", "description": "左侧菜单图标、居中「云享生活」紫色标题、右侧通知铃铛", "styles": "背景白色，标题18px加粗紫色"},
+        {"name": "SearchBar", "description": "圆角搜索框，左侧放大镜，占位符「搜索我的存酒...」", "styles": "背景#F5F5F5，圆角20px，全宽"},
+        {"name": "ListHeader", "description": "「我的存酒 (3)」标题 + 右侧筛选漏斗图标", "styles": "左右分布，标题16px加粗"},
+        {"name": "StoredWineCard", "description": "酒水图片+剩余瓶数紫色胶囊标签、商品名、分类、存入日期、取酒/续存按钮", "styles": "圆角15px白色卡片浅阴影，主按钮紫色全宽，续存按钮浅紫底"},
+        {"name": "BottomTabBar", "description": "首页/点餐/排行榜/我的四栏底部导航", "styles": "白色背景，激活态紫色带点指示"}
+      ],
+      "navigation": {"from": ["profile"], "to": ["retrieveWine", "renewWine"]}
+    },
+    {
+      "name": "userProfile",
+      "title": "个人主页",
+      "path": "/pages/social/profile",
+      "type": "mobile",
+      "imageIndex": 3,
+      "layout": "顶部导航+悬浮式用户信息卡片+动态区块标题+两列瀑布流动态图片网格。",
+      "components": [
+        {"name": "CustomNavBar", "description": "返回箭头、居中「个人主页」、右侧更多操作", "styles": "背景透明或极淡粉"},
+        {"name": "ProfileCard", "description": "圆形头像、右上角「私信TA」紫色按钮、昵称、性别年龄标签、地理位置、个性签名", "styles": "白色圆角24px卡片带阴影，性别标签粉色图标"},
+        {"name": "SectionHeader", "description": "「TA的动态」标题 + 「共18篇」统计", "styles": "左右分布"},
+        {"name": "DynamicGrid", "description": "两列瀑布流图片列表，部分带底部文字遮罩", "styles": "图片大圆角16px，不等高瀑布流"}
+      ],
+      "navigation": {"from": ["squareFeed"], "to": ["dynamicDetail", "chat"]}
+    },
+    {
+      "name": "wallet",
+      "title": "我的钱包",
+      "path": "/pages/wallet/index",
+      "type": "mobile",
+      "imageIndex": 4,
+      "layout": "顶部导航+资产概览大卡片+功能菜单列表卡片+底部会员推广横幅。",
+      "components": [
+        {"name": "NavBar", "description": "返回箭头、居中「我的钱包」紫色标题、右侧铃铛", "styles": "标题18px加粗紫色"},
+        {"name": "AssetCard", "description": "「我的资产(元)」标签+眼睛图标、余额¥2,850.45、提现/充值双按钮", "styles": "白色卡片圆角24px居中，提现紫色实心，充值浅紫底"},
+        {"name": "MenuListCard", "description": "资金明细、提现记录、提现账号三个菜单项", "styles": "白色卡片，左侧紫色圆形图标背景，右侧箭头"},
+        {"name": "MemberBanner", "description": "「尊享会员特权」推广横幅+「去开启」按钮", "styles": "背景#F2F1F0，圆角20px，按钮紫色胶囊"}
+      ],
+      "navigation": {"from": ["profile"], "to": ["fundDetail", "withdrawRecord", "withdrawAccount", "withdraw", "recharge"]}
+    },
+    {
+      "name": "points",
+      "title": "我的积分",
+      "path": "/pages/points/index",
+      "type": "mobile",
+      "imageIndex": 5,
+      "layout": "顶部导航+积分概览卡片（含3D机器人插图）+积分明细列表标题+滚动流水列表。",
+      "components": [
+        {"name": "NavigationBar", "description": "返回箭头、居中「我的积分」、右侧铃铛", "styles": "紫色图标文字，高度44px"},
+        {"name": "PointsSummaryCard", "description": "「当前可用积分」标签、2850分大号数值、右侧3D紫色机器人、底部「积分商城」按钮", "styles": "白色大卡片圆角24px，数值32px紫色加粗，按钮紫色全宽"},
+        {"name": "ListHeader", "description": "「积分明细」标题 + 筛选漏斗", "styles": "标题黑色加粗，筛选灰色"},
+        {"name": "TransactionList", "description": "积分变动记录列表，每项含圆形图标、业务名称、时间戳、紫色变动值", "styles": "白色小卡片圆角，图标背景紫/粉色"}
+      ],
+      "navigation": {"from": ["profile"], "to": ["pointsMall", "pointsFilter"]}
+    },
+    {
+      "name": "distribution",
+      "title": "分销中心",
+      "path": "/pages/distribution/index",
+      "type": "mobile",
+      "imageIndex": 6,
+      "layout": "顶部导航+累计收益大卡+双栏统计卡+紫色邀请横幅+邀请榜单Tab列表。",
+      "components": [
+        {"name": "Navbar", "description": "返回箭头、居中「分销中心」、右侧帮助图标", "styles": "背景透明，高度44px"},
+        {"name": "TotalEarningsCard", "description": "累计收益¥12,850.42、「提现至钱包>」按钮", "styles": "白色卡片，金额28px紫色加粗，提现按钮浅紫底"},
+        {"name": "StatsGrid", "description": "邀请人数142、待入账收益¥420.00两栏卡片", "styles": "等宽并排，图标圆形背景"},
+        {"name": "PromotionBanner", "description": "「邀请好友，乐享佣金」紫色全宽横幅+「立即邀请好友」白色按钮", "styles": "背景#9C7CFE，圆角20px，白色文字"},
+        {"name": "LeaderboardSection", "description": "邀请榜单标题+查看全部，Tab「近期活跃/收益贡献」，用户列表+加载更多", "styles": "用户行含头像昵称日期贡献金额"}
+      ],
+      "navigation": {"from": ["profile"], "to": ["withdraw", "inviteShare", "inviteList"]}
+    },
+    {
+      "name": "profile",
+      "title": "个人中心",
+      "path": "/pages/my/index",
+      "type": "mobile",
+      "imageIndex": 7,
+      "layout": "顶部导航+用户信息区+紫色渐变会员横幅+三栏功能入口+积分进度卡片+功能菜单列表+版本信息+底部TabBar。",
+      "components": [
+        {"name": "Header", "description": "左侧菜单、居中「云享生活」、右侧通知铃铛", "styles": "背景#F8F9FB，紫色加粗标题"},
+        {"name": "UserProfile", "description": "圆形头像带LV.5等级标签、昵称「高级会员」、ID、右侧设置齿轮", "styles": "flex横向居中，padding 20px"},
+        {"name": "VIPBanner", "description": "紫色渐变会员卡片+「立即开通」白色按钮", "styles": "圆角16px，margin 16px"},
+        {"name": "StatCards", "description": "账户余额、快速取酒、订单中心三栏入口", "styles": "grid三列，gap 12px"},
+        {"name": "PointsCard", "description": "我的积分12450、紫色进度条、升级提示、「去赚积分」链接", "styles": "白色卡片圆角16px"},
+        {"name": "MenuList", "description": "邀请好友、在线客服、帮助中心、隐私与安全", "styles": "白色卡片，彩色图标+箭头"},
+        {"name": "FooterInfo", "description": "品牌标识+Version 3.4.0", "styles": "居中灰色文字"},
+        {"name": "TabBar", "description": "首页/点餐/排行榜/我的（激活态）", "styles": "顶部1px #EEE边框"}
+      ],
+      "navigation": {"from": ["tabBar"], "to": ["home", "menu", "squareFeed", "wallet", "points", "distribution", "storedWine", "settings", "vip"]}
+    },
+    {
+      "name": "menu",
+      "title": "点餐",
+      "path": "/pages/menu/index",
+      "type": "mobile",
+      "imageIndex": 8,
+      "layout": "顶部导航+左侧分类侧边栏(100px)+右侧商品列表+底部浮动结算栏+底部TabBar。",
+      "components": [
+        {"name": "TopNavigationBar", "description": "汉堡菜单、居中「云享生活」、搜索与通知图标", "styles": "白色背景，高度44px"},
+        {"name": "CategorySidebar", "description": "精酿/梦幻德州/精致小吃/经典啤酒/清爽软饮/特调鸡尾分类，激活项紫色竖线指示", "styles": "宽100px，背景#F8F8F8"},
+        {"name": "ProductSectionHeader", "description": "当前分类标题「精酿啤酒系列」+描述副标题", "styles": "margin 15px，加粗"},
+        {"name": "ProductCard", "description": "商品缩略图、名称、描述、价格¥38、会员价标签、紫色+号按钮", "styles": "白色卡片圆角16px，会员价浅粉底标签"},
+        {"name": "FloatingCheckoutBar", "description": "购物车图标+红色角标2、总价¥80.00、预估优惠、「去结算」紫色按钮", "styles": "白色圆角30px浮动条，阴影"},
+        {"name": "BottomTabBar", "description": "首页/点餐(激活)/排行榜/我的", "styles": "高度50px"}
+      ],
+      "navigation": {"from": ["home", "tabBar"], "to": ["confirmOrder", "productDetail", "cart"]}
+    },
+    {
+      "name": "home",
+      "title": "首页",
+      "path": "/pages/home/index",
+      "type": "mobile",
+      "imageIndex": 9,
+      "layout": "顶部导航+紫色渐变欢迎卡片+双主操作卡片+六宫格服务入口+精选活动横滑列表+右下角FAB+底部TabBar。",
+      "components": [
+        {"name": "Navbar", "description": "汉堡菜单、居中「云享生活」、带红点通知铃铛", "styles": "紫色18px加粗"},
+        {"name": "HeroCard", "description": "WELCOME BACK、开启今日云享之旅、LV.5高级会员徽章、在线预约中/1240积分状态", "styles": "紫色渐变背景圆角24px，白色文字"},
+        {"name": "MainActionCards", "description": "自助点餐(紫色底)与在线预约(白底紫字)双卡片", "styles": "并排gap 12px，高度120px"},
+        {"name": "ServiceGrid", "description": "酒水套餐/附近搭子/会员中心/我的积分/团购/互动游戏六宫格", "styles": "背景#F8F9FB圆角24px"},
+        {"name": "FeaturedActivities", "description": "「精选活动」标题+查看全部，横滑活动卡片", "styles": "margin-top 24px"},
+        {"name": "ActivityCard", "description": "鸡尾酒图+限时优惠标签+套餐名+价格¥298/¥588+「立即抢购」", "styles": "圆角20px带阴影"},
+        {"name": "FAB", "description": "右下角紫色圆形+号悬浮按钮", "styles": "56px直径"},
+        {"name": "TabBar", "description": "首页(激活)/点餐/排行榜/我的", "styles": "白色背景顶部边框"}
+      ],
+      "navigation": {"from": ["tabBar"], "to": ["menu", "booking", "pointsMall", "squareFeed", "activityDetail"]}
+    },
+    {
+      "name": "confirmOrder",
+      "title": "确认订单",
+      "path": "/pages/order/confirm",
+      "type": "mobile",
+      "imageIndex": 10,
+      "layout": "顶部导航+门店信息卡+商品清单卡+支付方式卡+订单备注卡+底部提交栏（隐含）。",
+      "components": [
+        {"name": "NavBar", "description": "返回箭头、居中「确认订单」", "styles": "紫色标题"},
+        {"name": "StoreInfoCard", "description": "门店名称地址、堂食标签、虚线分割、当前座位A-08桌", "styles": "白色卡片圆角16px，座位号紫色加粗"},
+        {"name": "ProductListCard", "description": "商品清单列表（图+名+规格+数量+单价）、商品小计、打包费、合计紫色大字", "styles": "白色卡片"},
+        {"name": "PaymentMethodCard", "description": "微信支付(选中紫色勾)、零钱支付(未选中圆圈)", "styles": "每项含图标名称提示"},
+        {"name": "RemarksCard", "description": "订单备注入口，编辑图标+「无备注」+箭头", "styles": "可点击跳转备注编辑"}
+      ],
+      "navigation": {"from": ["menu"], "to": ["orderDetail", "remarkEdit", "payment"]}
+    },
+    {
+      "name": "orderDetailAlt",
+      "title": "订单详情",
+      "path": "/pages/order/detail",
+      "type": "mobile",
+      "imageIndex": 11,
+      "layout": "与imageIndex 1同为订单详情页，纵向卡片布局+底部固定操作栏，视觉风格一致。",
+      "components": [
+        {"name": "NavigationBar", "description": "返回、标题「订单详情」、分享", "styles": "紫色文字图标"},
+        {"name": "StatusHeader", "description": "等待出餐中徽章+预计5-10分钟", "styles": "居中浅紫徽章"},
+        {"name": "PickupCard", "description": "取餐号A086+队列状态+展示取餐码按钮", "styles": "48px紫色取餐号"},
+        {"name": "OrderItemsCard", "description": "门店+商品列表+价格明细", "styles": "白色圆角卡片"},
+        {"name": "OrderInfoCard", "description": "订单元数据信息", "styles": "键值对布局"},
+        {"name": "FooterLinks", "description": "联系门店、售后帮助", "styles": "居中链接"},
+        {"name": "BottomActionBar", "description": "实付金额+再来一单+订单详情卡", "styles": "底部固定白色栏"}
+      ],
+      "navigation": {"from": ["myOrders"], "to": ["pickupCode", "reorder"]}
+    },
+    {
+      "name": "editProfile",
+      "title": "编辑资料",
+      "path": "/pages/profile/edit",
+      "type": "mobile",
+      "imageIndex": 12,
+      "layout": "顶部导航+居中头像上传+表单项纵向排列+底部固定保存按钮。",
+      "components": [
+        {"name": "NavBar", "description": "返回、居中「编辑资料」、右侧更多", "styles": "白色背景紫色标题18px"},
+        {"name": "AvatarUpload", "description": "大圆形头像+右下角紫色相机图标+「点击更换头像」", "styles": "直径约100px"},
+        {"name": "NicknameField", "description": "昵称标签+圆角输入框", "styles": "背景#F7F7F7圆角12px"},
+        {"name": "GenderSelector", "description": "男/女并排选择按钮", "styles": "选中紫色底白字，未选中浅灰底"},
+        {"name": "AgeAndPhoneRow", "description": "年龄选择器+联系电话输入框并排", "styles": "等宽gap 12px"},
+        {"name": "NearbyFriendsCard", "description": "附近好友展示开关", "styles": "白色卡片+紫色Switch"},
+        {"name": "BioTextArea", "description": "个人简介多行输入", "styles": "高度120px灰色背景"},
+        {"name": "ImageUploadRow", "description": "个人相册展示+微信二维码上传框", "styles": "虚线边框上传区域"},
+        {"name": "SubmitButton", "description": "「保存修改」紫色大按钮", "styles": "底部固定#7F66FF圆角15px带阴影"}
+      ],
+      "navigation": {"from": ["profile", "userProfile"], "to": ["profile"]}
+    },
+    {
+      "name": "squareFeed",
+      "title": "广场动态",
+      "path": "/pages/square/index",
+      "type": "mobile",
+      "imageIndex": 13,
+      "layout": "顶部导航+快捷筛选按钮组+分类Tab+两列瀑布流Feed+右下角FAB+底部TabBar。",
+      "components": [
+        {"name": "NavBar", "description": "汉堡菜单、居中「广场动态」、带红点铃铛", "styles": "白色背景紫色元素"},
+        {"name": "QuickFilterButtons", "description": "附近搭子/今日热门/约个饭三个胶囊按钮", "styles": "激活紫色底白字，未激活浅灰底"},
+        {"name": "CategoryTabs", "description": "推荐/附近/最新三个Tab", "styles": "推荐激活紫色加粗下划线"},
+        {"name": "MasonryFeed", "description": "两列不等高动态卡片：图片/拼图、标题、头像昵称、点赞数、年龄距离标签", "styles": "卡片圆角20px，标签浅紫胶囊"},
+        {"name": "CreateFAB", "description": "右下角紫色渐变圆形+号按钮", "styles": "带紫色阴影"},
+        {"name": "BottomTabBar", "description": "首页/点餐/排行榜(激活)/我的", "styles": "固定底部"}
+      ],
+      "navigation": {"from": ["tabBar", "home"], "to": ["userProfile", "postDetail", "createPost"]}
+    },
+    {
+      "name": "pointsMall",
+      "title": "积分商城",
+      "path": "/pages/points/mall",
+      "type": "mobile",
+      "imageIndex": 14,
+      "layout": "顶部导航+紫色渐变积分余额卡+分类Tab横滑+热门兑换双列商品网格+赚积分横幅+底部TabBar。",
+      "components": [
+        {"name": "CustomNavbar", "description": "返回、居中「积分商城」、右侧历史记录图标", "styles": "高度88rpx"},
+        {"name": "PointsBalanceCard", "description": "当前可用积分1320、积分明细链接、我的兑换按钮", "styles": "紫色渐变圆角32rpx"},
+        {"name": "CategoryTabs", "description": "全部商品/数码周边/虚拟礼包/生活", "styles": "横滑胶囊，激活白底紫字"},
+        {"name": "SectionHeader", "description": "热门兑换+筛选按钮", "styles": "左右分布"},
+        {"name": "ProductGrid", "description": "双列商品卡片网格", "styles": "gap 20rpx"},
+        {"name": "ProductCard", "description": "商品图+HOT/LIMITED标签+名称+积分+「立即兑换」按钮", "styles": "白色圆角24rpx"},
+        {"name": "EarnPointsBanner", "description": "赚取更多积分+每日签到提示+「去签到」按钮", "styles": "灰色背景圆角32rpx"},
+        {"name": "BottomTabBar", "description": "四栏底部导航", "styles": "固定底部"}
+      ],
+      "navigation": {"from": ["points", "home"], "to": ["pointsHistory", "redemptionHistory", "checkin", "productDetail"]}
+    },
+    {
+      "name": "myOrders",
+      "title": "我的订单",
+      "path": "/pages/order/list",
+      "type": "mobile",
+      "imageIndex": 15,
+      "layout": "顶部导航+横向状态Tab+滚动订单卡片列表+底部TabBar。含制作中紫色高亮卡、待出餐/已完成/已取消白卡。",
+      "components": [
+        {"name": "Header", "description": "汉堡菜单、居中「我的订单」紫色、通知铃铛", "styles": "顶部固定"},
+        {"name": "StatusTabs", "description": "全部/制作中/待出餐/已完成/已取消横滑Tab", "styles": "全部激活紫色圆点指示"},
+        {"name": "ActiveOrderCard", "description": "紫色背景制作中卡片：状态标签+前面还有3位+点餐号码A108+嵌套商品白卡", "styles": "紫色实心背景圆角16px"},
+        {"name": "PendingOrderCard", "description": "待出餐白卡：日期+商品信息+查看详情/取餐码按钮", "styles": "白色卡片浅阴影"},
+        {"name": "CompletedOrderCard", "description": "已完成白卡：商品图+名称+门店+价格+再来一单/评价赢积分", "styles": "底部双按钮"},
+        {"name": "CancelledOrderCard", "description": "已取消虚线边框卡：灰色图标+退款说明+灰色价格", "styles": "虚线边框"},
+        {"name": "BottomTabBar", "description": "首页/点餐/我的(激活)/设置", "styles": "紫色激活态"}
+      ],
+      "navigation": {"from": ["profile"], "to": ["orderDetail", "pickupCode", "reorder", "review"]}
+    },
+    {
+      "name": "tableInteraction",
+      "title": "桌面互动",
+      "path": "/pages/table/interaction",
+      "type": "mobile",
+      "imageIndex": 16,
+      "layout": "顶部导航+桌台标题区+双栏统计卡+中央圆形座位布局(8座位环绕)+底部浮动用户状态卡+底部TabBar。",
+      "components": [
+        {"name": "Navbar", "description": "汉堡菜单、居中「桌面互动」、通知铃铛", "styles": "透明背景紫色元素"},
+        {"name": "TableHeader", "description": "「A.红桌」大标题+绿色「预约中」状态点+更新时间", "styles": "标题#6B46D1，状态#00C08B"},
+        {"name": "StatsGrid", "description": "基础积分20/40、座位状态4/9双卡", "styles": "背景#F1EFFF圆角16px"},
+        {"name": "TableInteractionArea", "description": "中央「云享对弈」+环绕8座位卡A1-A8，已入座显示头像昵称", "styles": "已占紫色底，空座白色灰图标"},
+        {"name": "UserStatusCard", "description": "当前用户头像+「我已入座A4」+取消按钮", "styles": "底部浮动白色圆角24px带阴影"},
+        {"name": "BottomTabBar", "description": "首页/点餐(激活)/排行榜/我的", "styles": "白色背景紫色激活"}
+      ],
+      "navigation": {"from": ["home", "scan"], "to": ["menu", "seatSelect"]}
+    }
+  ],
+  "entities": [
+    {"name": "User", "fields": ["id", "nickname", "avatar", "phone", "gender", "age", "level", "memberLevel", "points", "balance", "bio", "location", "showNearby", "album", "wechatQr", "token"]},
+    {"name": "Order", "fields": ["id", "orderNo", "status", "pickupNo", "tableNo", "storeId", "storeName", "storeAddress", "diningType", "items", "subtotal", "packagingFee", "discountAmount", "totalAmount", "payAmount", "payMethod", "remark", "estimatedTime", "queueCount", "createTime"]},
+    {"name": "OrderItem", "fields": ["id", "productId", "productName", "imageUrl", "specs", "quantity", "price", "memberPrice"]},
+    {"name": "Product", "fields": ["id", "categoryId", "name", "description", "imageUrl", "price", "memberPrice", "stock", "status"]},
+    {"name": "Category", "fields": ["id", "name", "icon", "sort", "description"]},
+    {"name": "Cart", "fields": ["items", "totalAmount", "discountAmount", "itemCount"]},
+    {"name": "StoredWine", "fields": ["id", "name", "category", "remainingBottles", "storeDate", "imageUrl", "canRenew"]},
+    {"name": "Wallet", "fields": ["balance", "currency", "frozenAmount"]},
+    {"name": "Transaction", "fields": ["id", "type", "title", "amount", "createTime", "status"]},
+    {"name": "UserPoints", "fields": ["totalPoints", "availablePoints"]},
+    {"name": "PointsRecord", "fields": ["id", "type", "title", "pointsChange", "iconType", "createTime"]},
+    {"name": "PointProduct", "fields": ["id", "name", "image", "pointsRequired", "category", "tag", "stock"]},
+    {"name": "Redemption", "fields": ["id", "productId", "userId", "status", "createTime"]},
+    {"name": "DistributionSummary", "fields": ["totalEarnings", "inviteCount", "pendingEarnings"]},
+    {"name": "InviteeRecord", "fields": ["userId", "nickname", "avatar", "inviteDate", "contributionAmount", "orderCount"]},
+    {"name": "Post", "fields": ["id", "title", "content", "images", "userId", "likesCount", "userAge", "distance", "category", "createTime"]},
+    {"name": "Dynamic", "fields": ["id", "userId", "imageUrl", "content", "createTime"]},
+    {"name": "Activity", "fields": ["id", "title", "description", "imageUrl", "price", "originalPrice", "tag"]},
+    {"name": "Table", "fields": ["id", "tableNo", "tableName", "status", "currentPoints", "maxPoints", "occupiedSeats", "totalSeats", "updateTime"]},
+    {"name": "Seat", "fields": ["id", "tableId", "seatNo", "status", "userId", "userName", "userAvatar"]},
+    {"name": "PaymentMethod", "fields": ["type", "name", "icon", "balance", "isSelected"]},
+    {"name": "ServiceItem", "fields": ["id", "name", "iconUrl", "route"]}
+  ],
+  "flows": [
+    {"name": "用户登录", "steps": ["打开应用", "POST /sqx_fast/app/user/login", "存储token", "跳转首页"], "type": "mobile"},
+    {"name": "点餐下单", "steps": ["首页/Tab进入点餐", "选择分类浏览商品", "点击+加入购物车", "点击去结算", "确认订单页核对信息", "选择支付方式", "提交订单支付", "跳转订单详情"], "type": "mobile"},
+    {"name": "取餐流程", "steps": ["订单详情/我的订单查看状态", "等待制作完成", "点击展示取餐码", "向店员出示核销"], "type": "mobile"},
+    {"name": "再来一单", "steps": ["订单详情/已完成订单点击再来一单", "POST /sqx_fast/app/order/reorder", "跳转点餐页"], "type": "mobile"},
+    {"name": "存酒取酒", "steps": ["个人中心进入我的存酒", "浏览/搜索存酒列表", "点击立即取酒或续存申请", "提交取酒/续存请求"], "type": "mobile"},
+    {"name": "积分兑换", "steps": ["我的积分进入积分商城", "浏览商品分类", "点击立即兑换", "确认扣除积分", "生成兑换记录"], "type": "mobile"},
+    {"name": "分销邀请", "steps": ["进入分销中心", "查看收益统计", "点击立即邀请好友", "分享邀请链接/二维码", "好友下单获得返利"], "type": "mobile"},
+    {"name": "广场社交", "steps": ["进入广场动态", "浏览/筛选/切换Tab", "点赞或查看详情", "点击头像进入个人主页", "可发起私信"], "type": "mobile"},
+    {"name": "编辑资料", "steps": ["个人中心进入编辑资料", "修改头像/昵称/性别等", "上传相册/微信二维码", "保存修改"], "type": "mobile"},
+    {"name": "桌面互动入座", "steps": ["扫码或首页进入桌面互动", "查看桌台座位状态", "选择空座位入座", "确认入座或取消"], "type": "mobile"},
+    {"name": "钱包提现充值", "steps": ["个人中心进入我的钱包", "查看余额", "选择提现或充值", "完成资金操作"], "type": "mobile"}
+  ],
+  "apis": [
+    {"method": "POST", "path": "/sqx_fast/app/user/login", "description": "用户端登录，校验账号密码返回token，禁止RBAC", "auth": false},
+    {"method": "POST", "path": "/sqx_fast/app/user/register", "description": "用户注册", "auth": false},
+    {"method": "GET", "path": "/sqx_fast/app/user/info", "description": "获取当前登录用户信息", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/user/profile", "description": "获取用户详细资料", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/user/update", "description": "更新用户个人资料", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/home/init", "description": "首页初始化数据（欢迎卡、服务入口、精选活动）", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/activity/list", "description": "获取精选活动列表", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/category/list", "description": "获取点餐分类列表", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/product/list", "description": "按分类获取商品列表", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/cart/add", "description": "添加商品到购物车", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/cart/summary", "description": "获取购物车汇总（数量、金额、优惠）", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/order/preview", "description": "获取订单预览（商品、费用、桌位）", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/order/submit", "description": "提交订单并发起支付", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/order/create", "description": "创建新订单", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/order/list", "description": "获取订单列表，支持状态筛选", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/order/detail/{id}", "description": "获取订单详情", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/order/reorder", "description": "再来一单", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/order/pickup-code/{id}", "description": "获取取餐码", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/order/cancel", "description": "取消订单", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/payment/list", "description": "获取可用支付方式及余额", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/wallet/info", "description": "获取钱包余额信息", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/wallet/bill/list", "description": "资金明细列表", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/wallet/withdraw/list", "description": "提现记录列表", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/wallet/account/list", "description": "提现账号列表", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/wallet/withdraw", "description": "发起提现", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/wallet/recharge", "description": "发起充值", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/points/info", "description": "获取积分余额", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/points/list", "description": "积分变动明细列表", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/points/products", "description": "积分商城商品列表", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/points/redeem", "description": "积分兑换商品", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/points/history", "description": "兑换记录", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/points/checkin", "description": "每日签到领积分", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/distribution/info", "description": "分销中心收益概览", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/distribution/invitees", "description": "邀请用户榜单列表", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/distribution/withdraw", "description": "分销收益提现至钱包", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/alcohol/stored/list", "description": "我的存酒列表", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/alcohol/stored/retrieve", "description": "发起取酒申请", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/alcohol/stored/renew", "description": "发起续存申请", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/square/list", "description": "广场动态Feed列表", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/square/like", "description": "点赞/取消点赞动态", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/square/create", "description": "发布广场动态", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/square/categories", "description": "广场筛选分类", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/dynamic/user_list", "description": "用户个人动态列表", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/chat/create", "description": "创建私信会话", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/table/detail", "description": "获取桌台实时状态与座位信息", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/table/seat/join", "description": "用户入座", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/table/seat/leave", "description": "用户离座", "auth": true},
+    {"method": "POST", "path": "/sqx_fast/app/common/upload", "description": "通用图片上传", "auth": true},
+    {"method": "GET", "path": "/sqx_fast/app/config/version", "description": "获取APP版本信息", "auth": true}
+  ],
+  "tabBar": {
+    "type": "mobile",
+    "items": [
+      {"text": "首页", "pagePath": "/pages/home/index", "icon": "home"},
+      {"text": "点餐", "pagePath": "/pages/menu/index", "icon": "order"},
+      {"text": "排行榜", "pagePath": "/pages/square/index", "icon": "rank"},
+      {"text": "我的", "pagePath": "/pages/my/index", "icon": "user"}
+    ],
+    "activeColor": "#7B61FF",
+    "inactiveColor": "#999999"
+  },
+  "notes": {
+    "adminPages": "本批16张设计稿均为用户端(mobile)页面，未包含管理端(admin)设计稿",
+    "authHeader": "全站API使用Header token鉴权（登录接口除外）",
+    "database": "MySQL库名travel"
+  }
+}
