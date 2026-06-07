@@ -17,7 +17,7 @@ import java.util.List;
  * 管理端 - 酒水分类
  */
 @RestController
-@RequestMapping("/admin/product/category")
+@RequestMapping("/admin/category")
 public class AdminProductCategoryController {
 
     private final BarProductCategoryService categoryService;

@@ -55,7 +55,7 @@ public class AdminProductController {
         return Result.ok();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @RequiresPermissions("bar:product:delete")
     public Result<Void> delete(@PathVariable Long id) {
         productService.delete(id);

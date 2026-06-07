@@ -12,18 +12,19 @@ export function saveProduct(data) {
   return request.post('/admin/product/save', data)
 }
 
+/** 编辑复用 save 接口（PRD 统一 POST /admin/product/save） */
 export function updateProduct(data) {
-  return request.put('/admin/product/update', data)
+  return saveProduct(data)
 }
 
 export function deleteProduct(id) {
-  return request.delete(`/admin/product/delete/${id}`)
+  return request.delete(`/admin/product/${id}`)
 }
 
 export function getCategoryList() {
-  return request.get('/admin/product/category/list')
+  return request.get('/admin/category/list')
 }
 
 export function saveCategory(data) {
-  return request.post('/admin/product/category/save', data)
+  return request.post('/admin/category/save', data)
 }

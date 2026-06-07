@@ -35,7 +35,7 @@ public class BarProductServiceImpl implements BarProductService {
 
     @Override
     public PageResult<ProductVo> page(ProductQueryBo queryBo) {
-        int page = queryBo.getPage() == null || queryBo.getPage() < 1 ? 1 : queryBo.getPage();
+        int page = queryBo.resolvePage();
         int pageSize = queryBo.getPageSize() == null || queryBo.getPageSize() < 1 ? 10 : queryBo.getPageSize();
 
         LambdaQueryWrapper<BarProduct> wrapper = buildQueryWrapper(queryBo);

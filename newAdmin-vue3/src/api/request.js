@@ -2,8 +2,16 @@ import axios from 'axios'
 import { ElMessage } from 'element-plus'
 
 const service = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE || '/sqx_fast',
+  baseURL: import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_BASE || '/sqx_fast',
   timeout: 30000
+})
+
+service.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token')
+  if (token) {
+    config.headers.token = token
+  }
+  return config
 })
 
 service.interceptors.response.use(

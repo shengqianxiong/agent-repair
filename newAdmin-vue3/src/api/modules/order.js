@@ -9,7 +9,7 @@ export function getOrderDetail(id) {
 }
 
 export function updateOrderStatus(data) {
-  return request.put('/admin/order/status', data)
+  return request.post('/admin/order/status', data)
 }
 
 export function refundOrder(id) {

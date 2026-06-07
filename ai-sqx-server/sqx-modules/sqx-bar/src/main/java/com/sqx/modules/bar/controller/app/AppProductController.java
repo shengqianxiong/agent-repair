@@ -4,16 +4,12 @@ import com.sqx.common.PageResult;
 import com.sqx.common.Result;
 import com.sqx.common.annotation.Login;
 import com.sqx.modules.bar.domain.bo.ProductQueryBo;
-import com.sqx.modules.bar.domain.vo.ProductCategoryVo;
 import com.sqx.modules.bar.domain.vo.ProductVo;
-import com.sqx.modules.bar.service.BarProductCategoryService;
 import com.sqx.modules.bar.service.BarProductService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * 用户端 - 酒水商品
@@ -23,18 +19,9 @@ import java.util.List;
 public class AppProductController {
 
     private final BarProductService productService;
-    private final BarProductCategoryService categoryService;
 
-    public AppProductController(BarProductService productService,
-                                BarProductCategoryService categoryService) {
+    public AppProductController(BarProductService productService) {
         this.productService = productService;
-        this.categoryService = categoryService;
-    }
-
-    @GetMapping("/category/list")
-    @Login
-    public Result<List<ProductCategoryVo>> categoryList() {
-        return Result.ok(categoryService.listEnabled());
     }
 
     @GetMapping("/list")

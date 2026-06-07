@@ -1,5 +1,9 @@
 import request from '../request'
 
+export function adminLogin(data) {
+  return request.post('/admin/user/login', data)
+}
+
 export function getUserList(params) {
   return request.get('/admin/user/list', { params })
 }
