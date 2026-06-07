@@ -9,10 +9,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.public) {
-    if (to.path === '/login' && isLoggedIn()) {
-      next('/home')
-      return
-    }
+    // 登录页始终可访问，避免本地残留 token 导致无法重新登录
     next()
     return
   }

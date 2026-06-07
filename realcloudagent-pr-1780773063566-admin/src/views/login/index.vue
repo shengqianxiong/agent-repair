@@ -20,11 +20,15 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { adminLogin } from '@/api/modules/auth'
-import { setToken, setAccount, setAccountId } from '@/utils/auth'
+import { removeToken, setToken, setAccount, setAccountId } from '@/utils/auth'
+
+onMounted(() => {
+  removeToken()
+})
 
 const router = useRouter()
 const route = useRoute()
