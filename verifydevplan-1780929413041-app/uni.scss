@@ -1,0 +1,53 @@
+/* designTokens - 禁止擅自修改色值 */
+$u-primary: #7B61FF;
+$u-warning: #FAAD14;
+$u-success: #52C41A;
+$u-error: #FF4D4F;
+$u-info: #A286FF;
+$u-main-color: #1A1A1A;
+$u-content-color: #666666;
+$u-tips-color: #999999;
+$u-bg-color: #F8F9FB;
+
+:root {
+  --color-primary: #7B61FF;
+  --color-primary-dark: #6B35FF;
+  --color-primary-light: #EBE4FF;
+  --color-primary-gradient: linear-gradient(135deg, #7246F2 0%, #9D7BFF 100%);
+  --color-secondary: #A286FF;
+  --color-background: #F8F9FB;
+  --color-card-bg: #FFFFFF;
+  --color-input-bg: #F7F7F7;
+  --color-text-primary: #333333;
+  --color-text-main: #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-text-tertiary: #999999;
+  --color-text-on-primary: #FFFFFF;
+  --color-border: #EEEEEE;
+  --color-divider: #F0F0F0;
+  --color-danger: #FF4D4F;
+  --color-success: #52C41A;
+  --color-warning: #FAAD14;
+  --font-size-xs: 24rpx;
+  --font-size-sm: 28rpx;
+  --font-size-base: 32rpx;
+  --font-size-lg: 36rpx;
+  --font-size-xl: 40rpx;
+  --font-size-xxl: 48rpx;
+  --spacing-xs: 8rpx;
+  --spacing-sm: 16rpx;
+  --spacing-md: 24rpx;
+  --spacing-base: 32rpx;
+  --spacing-lg: 40rpx;
+  --spacing-xl: 48rpx;
+  --page-padding: 32rpx;
+  --card-gap: 24rpx;
+  --section-gap: 48rpx;
+  --radius-sm: 16rpx;
+  --radius-md: 24rpx;
+  --radius-card: 48rpx;
+  --radius-button: 48rpx;
+  --radius-pill: 200rpx;
+  --shadow-card: 0 8rpx 32rpx rgba(0, 0, 0, 0.04);
+  --shadow-button: 0 8rpx 24rpx rgba(123, 97, 255, 0.25);
+}
