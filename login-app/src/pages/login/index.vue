@@ -1,5 +1,5 @@
 <template>
-  <view class="login-page">
+  <view class="page login-page">
     <view class="login-header">
       <text class="login-title">用户登录</text>
       <text class="login-subtitle">极简登录系统</text>
@@ -69,7 +69,6 @@ async function handleLogin() {
 
 <style scoped>
 .login-page {
-  min-height: 100vh;
   padding: 120rpx 48rpx 48rpx;
   background: linear-gradient(180deg, #667eea 0%, #f5f7fa 40%);
 }

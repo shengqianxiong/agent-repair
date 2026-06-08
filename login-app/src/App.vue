@@ -32,6 +32,7 @@ onShow(() => {
 
 <style lang="scss">
 @import 'uview-plus/index.scss';
+@import '@/styles/page-layout.scss';
 
 page {
   background-color: #f5f7fa;

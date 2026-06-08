@@ -1,5 +1,6 @@
 <template>
   <view class="page">
+    <scroll-view scroll-y class="page-body">
     <view v-if="items.length" class="redeem-list">
       <view v-for="item in items" :key="item.id" class="redeem-card">
         <u-image :src="item.image || defaultImg" width="120rpx" height="120rpx" radius="8"></u-image>
@@ -11,6 +12,7 @@
       </view>
     </view>
     <u-empty v-else mode="list" text="暂无可兑换商品"></u-empty>
+    </scroll-view>
 
     <u-modal
       :show="showModal"
@@ -65,7 +67,8 @@ onPullDownRefresh(async () => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding: 24rpx; }
+.page { background: #0f0f1a; }
+.redeem-list { padding: 24rpx; }
 .redeem-card {
   display: flex;
   align-items: center;

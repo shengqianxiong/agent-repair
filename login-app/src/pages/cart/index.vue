@@ -1,5 +1,6 @@
 <template>
   <view class="page">
+    <scroll-view scroll-y class="page-body">
     <view v-if="items.length" class="cart-list">
       <u-swipe-action>
         <u-swipe-action-item
@@ -24,6 +25,7 @@
       </u-swipe-action>
     </view>
     <u-empty v-else mode="car" text="购物车是空的"></u-empty>
+    </scroll-view>
 
     <view v-if="items.length" class="summary">
       <u-cell title="商品合计" :value="`¥${formatPrice(totalAmount)}`"></u-cell>
@@ -84,7 +86,7 @@ onPullDownRefresh(async () => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding-bottom: 200rpx; }
+.page { background: #0f0f1a; }
 .cart-list { padding: 16rpx; }
 .cart-item {
   display: flex;
@@ -98,10 +100,7 @@ onPullDownRefresh(async () => {
 .item-name { font-size: 28rpx; color: #fff; display: block; }
 .item-price { color: #f59e0b; margin-top: 8rpx; display: block; }
 .summary {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  flex-shrink: 0;
   background: #1a1a2e;
   padding: 24rpx 32rpx;
   padding-bottom: calc(24rpx + env(safe-area-inset-bottom));

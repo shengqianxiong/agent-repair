@@ -47,7 +47,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; }
+.page { background: #0f0f1a; }
 .success-content {
   display: flex;
   flex-direction: column;

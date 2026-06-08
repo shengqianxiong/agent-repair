@@ -1,30 +1,34 @@
 <template>
   <view class="page">
-    <u-tabs :list="tabList" :current="currentTab" @change="onTabChange" lineColor="#7c3aed"></u-tabs>
-
-    <view v-if="orders.length" class="order-list">
-      <view v-for="order in orders" :key="order.id" class="order-card" @click="goDetail(order.id)">
-        <view class="card-header">
-          <text class="order-no">{{ order.orderNo }}</text>
-          <u-tag :text="getStatus(order.status).text" :type="getStatus(order.status).type" size="mini"></u-tag>
-        </view>
-        <view v-for="item in (order.items || []).slice(0, 2)" :key="item.id" class="card-item">
-          <text>{{ item.productName }} x{{ item.quantity }}</text>
-        </view>
-        <view class="card-footer">
-          <text class="time">{{ formatTime(order.createTime) }}</text>
-          <text class="amount">¥{{ formatPrice(order.payAmount || order.totalAmount) }}</text>
-        </view>
-      </view>
-      <u-loadmore :status="loadStatus"></u-loadmore>
+    <view class="page-header">
+      <u-tabs :list="tabList" :current="currentTab" @change="onTabChange" lineColor="#7c3aed"></u-tabs>
     </view>
-    <u-empty v-else mode="order" text="暂无订单"></u-empty>
+
+    <scroll-view scroll-y class="page-body" @scrolltolower="loadMore">
+      <view v-if="orders.length" class="order-list">
+        <view v-for="order in orders" :key="order.id" class="order-card" @click="goDetail(order.id)">
+          <view class="card-header">
+            <text class="order-no">{{ order.orderNo }}</text>
+            <u-tag :text="getStatus(order.status).text" :type="getStatus(order.status).type" size="mini"></u-tag>
+          </view>
+          <view v-for="item in (order.items || []).slice(0, 2)" :key="item.id" class="card-item">
+            <text>{{ item.productName }} x{{ item.quantity }}</text>
+          </view>
+          <view class="card-footer">
+            <text class="time">{{ formatTime(order.createTime) }}</text>
+            <text class="amount">¥{{ formatPrice(order.payAmount || order.totalAmount) }}</text>
+          </view>
+        </view>
+        <u-loadmore :status="loadStatus"></u-loadmore>
+      </view>
+      <u-empty v-else mode="order" text="暂无订单"></u-empty>
+    </scroll-view>
   </view>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { onPullDownRefresh, onReachBottom } from '@dcloudio/uni-app'
+import { onPullDownRefresh } from '@dcloudio/uni-app'
 import { getOrderList } from '@/api/index.js'
 import { formatPrice, ORDER_STATUS_MAP } from '@/utils/common.js'
 
@@ -87,16 +91,17 @@ onPullDownRefresh(async () => {
   await loadData(true)
   uni.stopPullDownRefresh()
 })
-onReachBottom(() => {
+function loadMore() {
   if (loadStatus.value === 'loadmore') {
     page.value++
     loadData()
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; }
+.page { background: #0f0f1a; }
+.page-header { flex-shrink: 0; }
 .order-list { padding: 16rpx 24rpx; }
 .order-card {
   background: #1a1a2e;

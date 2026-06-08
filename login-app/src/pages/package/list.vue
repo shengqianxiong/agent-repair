@@ -1,26 +1,28 @@
 <template>
   <view class="page">
-    <view v-if="packages.length" class="package-list">
-      <view v-for="item in packages" :key="item.id" class="package-card" @click="goDetail(item.id)">
-        <u-image :src="item.image || defaultImg" width="100%" height="280rpx" radius="12"></u-image>
-        <view class="card-body">
-          <text class="name">{{ item.name }}</text>
-          <text class="desc">{{ item.description || '精选酒水组合' }}</text>
-          <view class="price-row">
-            <text class="price">¥{{ formatPrice(item.price) }}</text>
-            <text v-if="item.originalPrice" class="original">¥{{ formatPrice(item.originalPrice) }}</text>
+    <scroll-view scroll-y class="page-body" @scrolltolower="loadMore">
+      <view v-if="packages.length" class="package-list">
+        <view v-for="item in packages" :key="item.id" class="package-card" @click="goDetail(item.id)">
+          <u-image :src="item.image || defaultImg" width="100%" height="280rpx" radius="12"></u-image>
+          <view class="card-body">
+            <text class="name">{{ item.name }}</text>
+            <text class="desc">{{ item.description || '精选酒水组合' }}</text>
+            <view class="price-row">
+              <text class="price">¥{{ formatPrice(item.price) }}</text>
+              <text v-if="item.originalPrice" class="original">¥{{ formatPrice(item.originalPrice) }}</text>
+            </view>
           </view>
         </view>
+        <u-loadmore :status="loadStatus"></u-loadmore>
       </view>
-      <u-loadmore :status="loadStatus"></u-loadmore>
-    </view>
-    <u-empty v-else mode="list" text="暂无套餐"></u-empty>
+      <u-empty v-else mode="list" text="暂无套餐"></u-empty>
+    </scroll-view>
   </view>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { onPullDownRefresh, onReachBottom } from '@dcloudio/uni-app'
+import { onPullDownRefresh } from '@dcloudio/uni-app'
 import { getPackageList } from '@/api/index.js'
 import { formatPrice } from '@/utils/common.js'
 
@@ -54,16 +56,17 @@ onPullDownRefresh(async () => {
   await loadData(true)
   uni.stopPullDownRefresh()
 })
-onReachBottom(() => {
+function loadMore() {
   if (loadStatus.value === 'loadmore') {
     page.value++
     loadData()
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding: 24rpx; }
+.page { background: #0f0f1a; }
+.package-list { padding: 24rpx; }
 .package-card {
   background: #1a1a2e;
   border-radius: 16rpx;

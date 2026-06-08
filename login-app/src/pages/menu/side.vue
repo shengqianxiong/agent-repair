@@ -53,10 +53,10 @@ function goBack() {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; }
+.page { background: transparent; }
 .drawer {
   width: 560rpx;
-  height: 100vh;
+  height: 100%;
   background: #1a1a2e;
   padding-top: 80rpx;
 }

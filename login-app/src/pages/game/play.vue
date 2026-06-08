@@ -1,5 +1,6 @@
 <template>
   <view class="page">
+    <scroll-view scroll-y class="page-body">
     <view class="score-board">
       <text class="label">当前得分</text>
       <text class="score">{{ score }}</text>
@@ -15,6 +16,7 @@
       <u-button type="primary" text="提交成绩" :loading="submitting" :disabled="!started" @click="submit"></u-button>
       <u-button type="info" text="分享" open-type="share"></u-button>
     </view>
+    </scroll-view>
   </view>
 </template>
 
@@ -69,7 +71,8 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding: 32rpx; }
+.page { background: #0f0f1a; }
+.page-body { padding: 32rpx; }
 .score-board { text-align: center; padding: 32rpx; }
 .label { color: #a0a0b8; display: block; }
 .score { font-size: 80rpx; font-weight: 700; color: #7c3aed; display: block; margin: 16rpx 0; }

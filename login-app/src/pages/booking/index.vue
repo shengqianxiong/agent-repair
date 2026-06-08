@@ -1,5 +1,6 @@
 <template>
   <view class="page">
+    <scroll-view scroll-y class="page-body">
     <u-form labelPosition="left" labelWidth="160rpx">
       <u-form-item label="预约日期">
         <view @click="showDatePicker = true">{{ bookingDate || '请选择日期' }}</view>
@@ -26,6 +27,7 @@
         <u-number-box v-model="guestCount" :min="1" :max="20"></u-number-box>
       </u-form-item>
     </u-form>
+    </scroll-view>
 
     <view class="footer">
       <u-button type="primary" text="提交预约" :loading="submitting" @click="submit"></u-button>
@@ -115,15 +117,14 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .page {
-  min-height: 100vh;
   background: #0f0f1a;
+}
+.page-body {
   padding: 32rpx;
-  padding-bottom: 160rpx;
 }
 .footer {
-  position: fixed;
-  left: 32rpx;
-  right: 32rpx;
-  bottom: calc(48rpx + env(safe-area-inset-bottom));
+  flex-shrink: 0;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
 }
 </style>

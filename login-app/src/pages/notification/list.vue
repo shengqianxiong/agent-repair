@@ -1,5 +1,6 @@
 <template>
   <view class="page">
+    <scroll-view scroll-y class="page-body" @scrolltolower="loadMore">
     <view v-if="list.length" class="list">
       <u-cell
         v-for="item in list"
@@ -18,12 +19,13 @@
       <u-loadmore :status="loadStatus"></u-loadmore>
     </view>
     <u-empty v-else mode="message" text="暂无通知"></u-empty>
+    </scroll-view>
   </view>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { onPullDownRefresh, onReachBottom } from '@dcloudio/uni-app'
+import { onPullDownRefresh } from '@dcloudio/uni-app'
 import { getNotificationList, markNotificationRead } from '@/api/index.js'
 
 const list = ref([])
@@ -75,15 +77,15 @@ onPullDownRefresh(async () => {
   await loadData(true)
   uni.stopPullDownRefresh()
 })
-onReachBottom(() => {
+function loadMore() {
   if (loadStatus.value === 'loadmore') {
     page.value++
     loadData()
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; }
+.page { background: #0f0f1a; }
 .list { padding: 16rpx 0; }
 </style>

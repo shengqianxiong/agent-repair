@@ -2,8 +2,11 @@
   <view class="page">
     <u-navbar title="排行榜" :autoBack="false" bgColor="#1a1a2e" titleStyle="color:#fff"></u-navbar>
 
-    <u-tabs :list="tabList" :current="currentTab" @change="onTabChange" lineColor="#7c3aed"></u-tabs>
+    <view class="page-header">
+      <u-tabs :list="tabList" :current="currentTab" @change="onTabChange" lineColor="#7c3aed"></u-tabs>
+    </view>
 
+    <scroll-view scroll-y class="page-body">
     <!-- 我的排名 -->
     <view v-if="myRank" class="my-rank-card">
       <text class="label">我的排名</text>
@@ -24,6 +27,7 @@
       </view>
     </view>
     <u-empty v-else mode="list" text="暂无排名数据"></u-empty>
+    </scroll-view>
 
     <app-tabbar current="rank"></app-tabbar>
   </view>
@@ -77,9 +81,7 @@ onPullDownRefresh(async () => {
 
 <style lang="scss" scoped>
 .page {
-  min-height: 100vh;
   background: #0f0f1a;
-  padding-bottom: 120rpx;
 }
 .my-rank-card {
   margin: 24rpx;

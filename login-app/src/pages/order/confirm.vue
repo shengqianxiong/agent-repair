@@ -1,5 +1,6 @@
 <template>
   <view class="page">
+    <scroll-view scroll-y class="page-body">
     <u-cell-group title="选择桌位">
       <u-cell title="桌号" :value="selectedTable || '请选择'" isLink @click="showTablePicker = true"></u-cell>
     </u-cell-group>
@@ -16,6 +17,7 @@
       <text class="label">备注</text>
       <u-textarea v-model="remark" placeholder="口味偏好、特殊要求等" count maxlength="200"></u-textarea>
     </view>
+    </scroll-view>
 
     <view class="footer">
       <text class="total">合计 ¥{{ formatPrice(totalAmount) }}</text>
@@ -102,7 +104,7 @@ onMounted(loadData)
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding-bottom: 160rpx; }
+.page { background: #0f0f1a; }
 .section-title { padding: 24rpx 32rpx 8rpx; color: #a0a0b8; }
 .order-items { padding: 0 32rpx; }
 .order-item {
@@ -115,10 +117,7 @@ onMounted(loadData)
 .remark { padding: 24rpx 32rpx; }
 .label { color: #a0a0b8; margin-bottom: 12rpx; display: block; }
 .footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;

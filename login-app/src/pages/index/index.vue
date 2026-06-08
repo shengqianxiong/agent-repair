@@ -14,7 +14,7 @@
       </template>
     </u-navbar>
 
-    <scroll-view scroll-y class="content" @scrolltolower="loadMore">
+    <scroll-view scroll-y class="page-body" @scrolltolower="loadMore">
       <!-- 欢迎卡 -->
       <view class="welcome-card">
         <view class="welcome-info">
@@ -160,13 +160,11 @@ onPullDownRefresh(async () => {
 
 <style lang="scss" scoped>
 .page {
-  min-height: 100vh;
   background: #0f0f1a;
-  padding-bottom: 120rpx;
 }
-.content {
-  height: calc(100vh - 88rpx - 100rpx);
+.page-body {
   padding: 24rpx;
+  padding-bottom: 120rpx;
 }
 .nav-left, .nav-right {
   position: relative;

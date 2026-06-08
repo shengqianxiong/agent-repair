@@ -7,23 +7,25 @@
     </view>
 
     <view class="section-title">积分流水</view>
-    <view v-if="records.length" class="record-list">
-      <u-cell
-        v-for="item in records"
-        :key="item.id"
-        :title="item.source || item.type"
-        :label="formatTime(item.createTime)"
-        :value="formatPoints(item)"
-      ></u-cell>
-      <u-loadmore :status="loadStatus"></u-loadmore>
-    </view>
-    <u-empty v-else mode="list" text="暂无流水"></u-empty>
+    <scroll-view scroll-y class="page-body" @scrolltolower="loadMore">
+      <view v-if="records.length" class="record-list">
+        <u-cell
+          v-for="item in records"
+          :key="item.id"
+          :title="item.source || item.type"
+          :label="formatTime(item.createTime)"
+          :value="formatPoints(item)"
+        ></u-cell>
+        <u-loadmore :status="loadStatus"></u-loadmore>
+      </view>
+      <u-empty v-else mode="list" text="暂无流水"></u-empty>
+    </scroll-view>
   </view>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { onPullDownRefresh, onReachBottom } from '@dcloudio/uni-app'
+import { onPullDownRefresh } from '@dcloudio/uni-app'
 import { getPointsBalance, getPointsRecords } from '@/api/index.js'
 
 const balance = ref(0)
@@ -78,16 +80,18 @@ onPullDownRefresh(async () => {
   await loadRecords(true)
   uni.stopPullDownRefresh()
 })
-onReachBottom(() => {
+function loadMore() {
   if (loadStatus.value === 'loadmore') {
     page.value++
     loadRecords()
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; }
+.page { background: #0f0f1a; }
+.balance-card { flex-shrink: 0; }
+.section-title { flex-shrink: 0; }
 .balance-card {
   margin: 32rpx;
   padding: 48rpx;

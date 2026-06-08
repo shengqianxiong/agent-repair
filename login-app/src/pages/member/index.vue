@@ -1,5 +1,6 @@
 <template>
   <view class="page" v-if="member">
+    <scroll-view scroll-y class="page-body">
     <view class="level-card">
       <u-tag :text="member.levelName || `LV.${member.level || 1}`" type="warning" size="large"></u-tag>
       <text class="level-title">{{ member.levelName || '普通会员' }}</text>
@@ -21,6 +22,7 @@
         icon="checkmark-circle"
       ></u-cell>
     </u-cell-group>
+    </scroll-view>
   </view>
   <u-loading-page v-else loading></u-loading-page>
 </template>
@@ -56,7 +58,7 @@ onPullDownRefresh(async () => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; }
+.page { background: #0f0f1a; }
 .level-card {
   margin: 32rpx;
   padding: 48rpx;

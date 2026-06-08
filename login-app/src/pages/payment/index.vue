@@ -1,5 +1,6 @@
 <template>
   <view class="page">
+    <scroll-view scroll-y class="page-body">
     <view class="amount-card">
       <text class="label">支付金额</text>
       <text class="amount">¥{{ formatPrice(amount) }}</text>
@@ -8,6 +9,7 @@
     <u-cell-group title="支付方式">
       <u-cell title="微信支付" icon="weixin-fill" :value="'已选择'" isLink></u-cell>
     </u-cell-group>
+    </scroll-view>
 
     <view class="footer">
       <u-button type="primary" text="确认支付" :loading="paying" @click="doPay"></u-button>
@@ -61,7 +63,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; }
+.page { background: #0f0f1a; }
 .amount-card {
   margin: 48rpx 32rpx;
   padding: 48rpx;
@@ -72,9 +74,8 @@ onMounted(() => {
 .label { color: #a0a0b8; display: block; margin-bottom: 16rpx; }
 .amount { font-size: 64rpx; font-weight: 700; color: #f59e0b; }
 .footer {
-  position: fixed;
-  left: 32rpx;
-  right: 32rpx;
-  bottom: calc(48rpx + env(safe-area-inset-bottom));
+  flex-shrink: 0;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
 }
 </style>

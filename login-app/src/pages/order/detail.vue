@@ -1,5 +1,6 @@
 <template>
   <view class="page" v-if="order">
+    <scroll-view scroll-y class="page-body">
     <view class="status-card">
       <u-tag :text="statusInfo.text" :type="statusInfo.type" size="large"></u-tag>
       <text class="order-no">订单号：{{ order.orderNo }}</text>
@@ -23,6 +24,7 @@
         <text class="amount">¥{{ formatPrice(order.payAmount || order.totalAmount) }}</text>
       </view>
     </view>
+    </scroll-view>
 
     <view class="actions">
       <u-button v-if="order.status === '待支付'" type="error" text="取消订单" @click="cancel"></u-button>
@@ -83,7 +85,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding: 32rpx; padding-bottom: 160rpx; }
+.page { background: #0f0f1a; }
+.page-body { padding: 32rpx; }
 .status-card { text-align: center; padding: 32rpx; margin-bottom: 32rpx; }
 .order-no { display: block; margin-top: 16rpx; color: #6b6b80; font-size: 24rpx; }
 .section-title { color: #a0a0b8; margin: 32rpx 0 16rpx; }
@@ -102,11 +105,10 @@ onMounted(() => {
 }
 .amount { color: #f59e0b; font-size: 32rpx; }
 .actions {
-  position: fixed;
-  left: 32rpx;
-  right: 32rpx;
-  bottom: calc(48rpx + env(safe-area-inset-bottom));
+  flex-shrink: 0;
   display: flex;
   gap: 20rpx;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
 }
 </style>

@@ -2,6 +2,7 @@
   <view class="page" v-if="activity">
     <u-navbar :title="activity.title" :autoBack="true" bgColor="#1a1a2e" titleStyle="color:#fff"></u-navbar>
 
+    <scroll-view scroll-y class="page-body">
     <u-image :src="activity.image || defaultImg" width="100%" height="400rpx"></u-image>
 
     <view class="content">
@@ -22,6 +23,7 @@
 
       <text class="desc">{{ activity.description || '限时特惠活动' }}</text>
     </view>
+    </scroll-view>
 
     <view class="footer">
       <u-button type="primary" text="立即抢购" :loading="buying" @click="buy"></u-button>
@@ -76,7 +78,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding-bottom: 140rpx; }
+.page { background: #0f0f1a; }
 .content { padding: 32rpx; }
 .title-row { display: flex; align-items: center; gap: 12rpx; margin-bottom: 16rpx; }
 .title { font-size: 36rpx; font-weight: 700; color: #fff; }
@@ -92,9 +94,8 @@ onMounted(() => {
 .original { color: #6b6b80; text-decoration: line-through; }
 .desc { color: #a0a0b8; line-height: 1.6; }
 .footer {
-  position: fixed;
-  left: 32rpx;
-  right: 32rpx;
-  bottom: calc(48rpx + env(safe-area-inset-bottom));
+  flex-shrink: 0;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
 }
 </style>

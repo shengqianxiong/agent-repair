@@ -1,5 +1,6 @@
 <template>
   <view class="page" v-if="booking">
+    <scroll-view scroll-y class="page-body">
     <view class="status-header">
       <u-tag :text="statusInfo.text" :type="statusInfo.type" size="large"></u-tag>
     </view>
@@ -11,6 +12,7 @@
       <u-cell v-if="booking.tableNo" title="分配桌位" :value="booking.tableNo"></u-cell>
       <u-cell title="预约时间" :value="formatTime(booking.createTime)"></u-cell>
     </u-cell-group>
+    </scroll-view>
 
     <view class="actions">
       <u-button
@@ -78,14 +80,13 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding-bottom: 160rpx; }
+.page { background: #0f0f1a; }
 .status-header { text-align: center; padding: 48rpx; }
 .actions {
-  position: fixed;
-  left: 32rpx;
-  right: 32rpx;
-  bottom: calc(48rpx + env(safe-area-inset-bottom));
+  flex-shrink: 0;
   display: flex;
   gap: 20rpx;
+  padding: 24rpx 32rpx;
+  padding-bottom: calc(24rpx + env(safe-area-inset-bottom));
 }
 </style>

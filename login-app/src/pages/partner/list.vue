@@ -1,5 +1,6 @@
 <template>
   <view class="page">
+    <scroll-view scroll-y class="page-body">
     <view v-if="partners.length" class="partner-list">
       <view v-for="item in partners" :key="item.id" class="partner-card" @click="goDetail(item.id)">
         <u-avatar :src="item.avatar || ''" size="56"></u-avatar>
@@ -14,6 +15,7 @@
       </view>
     </view>
     <u-empty v-else mode="list" text="附近暂无酒友"></u-empty>
+    </scroll-view>
   </view>
 </template>
 
@@ -75,7 +77,8 @@ onPullDownRefresh(async () => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding: 24rpx; }
+.page { background: #0f0f1a; }
+.partner-list { padding: 24rpx; }
 .partner-card {
   display: flex;
   align-items: center;

@@ -1,5 +1,6 @@
 <template>
   <view class="page">
+    <scroll-view scroll-y class="page-body">
     <view class="scan-section">
       <u-button type="primary" icon="scan" text="扫码核销" @click="scanCode"></u-button>
     </view>
@@ -27,6 +28,7 @@
         :value="item.status"
       ></u-cell>
     </view>
+    </scroll-view>
   </view>
 </template>
 
@@ -76,7 +78,8 @@ onMounted(loadCoupons)
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding: 32rpx; }
+.page { background: #0f0f1a; }
+.page-body { padding: 32rpx; }
 .scan-section { margin-bottom: 32rpx; }
 .input-section {
   display: flex;

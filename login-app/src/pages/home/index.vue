@@ -1,5 +1,5 @@
 <template>
-  <view class="home-page">
+  <view class="page home-page">
     <view class="welcome-card">
       <text class="welcome-label">当前登录账号</text>
       <text class="welcome-account">{{ account }}</text>
@@ -28,7 +28,6 @@ function handleLogout() {
 
 <style scoped>
 .home-page {
-  min-height: 100vh;
   padding: 48rpx 32rpx;
 }
 .welcome-card {

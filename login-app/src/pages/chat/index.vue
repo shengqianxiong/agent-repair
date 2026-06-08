@@ -1,6 +1,6 @@
 <template>
   <view class="page">
-    <scroll-view scroll-y class="message-list" :scroll-into-view="scrollIntoView">
+    <scroll-view scroll-y class="page-body message-list" :scroll-into-view="scrollIntoView">
       <view
         v-for="msg in messages"
         :key="msg.id"
@@ -74,15 +74,10 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .page {
-  min-height: 100vh;
   background: #0f0f1a;
-  display: flex;
-  flex-direction: column;
 }
 .message-list {
-  flex: 1;
   padding: 24rpx;
-  height: calc(100vh - 120rpx);
 }
 .message {
   margin-bottom: 24rpx;
@@ -105,6 +100,7 @@ onUnmounted(() => {
 }
 .time { font-size: 20rpx; color: #6b6b80; margin-top: 8rpx; display: block; }
 .input-bar {
+  flex-shrink: 0;
   display: flex;
   gap: 16rpx;
   padding: 16rpx 24rpx;

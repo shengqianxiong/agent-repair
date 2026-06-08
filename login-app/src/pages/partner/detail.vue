@@ -1,5 +1,6 @@
 <template>
   <view class="page" v-if="partner">
+    <scroll-view scroll-y class="page-body">
     <view class="header">
       <u-avatar :src="partner.avatar || ''" size="80"></u-avatar>
       <text class="nickname">{{ partner.nickname }}</text>
@@ -12,6 +13,7 @@
       <u-button type="primary" text="发起邀约" :loading="inviting" @click="invite"></u-button>
       <u-button type="info" text="开始聊天" @click="goChat"></u-button>
     </view>
+    </scroll-view>
   </view>
   <u-loading-page v-else loading></u-loading-page>
 </template>
@@ -56,7 +58,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding: 48rpx 32rpx; }
+.page { background: #0f0f1a; }
+.page-body { padding: 48rpx 32rpx; }
 .header {
   display: flex;
   flex-direction: column;

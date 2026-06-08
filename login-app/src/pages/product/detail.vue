@@ -1,5 +1,6 @@
 <template>
   <view class="page" v-if="product">
+    <scroll-view scroll-y class="page-body">
     <u-swiper
       :list="swiperList"
       keyName="image"
@@ -20,6 +21,7 @@
       <text>数量</text>
       <u-number-box v-model="quantity" :min="1" :max="product.stock || 99"></u-number-box>
     </view>
+    </scroll-view>
     <view class="footer">
       <u-button type="info" text="加入购物车" @click="addCart"></u-button>
       <u-button type="primary" text="立即购买" @click="buyNow"></u-button>
@@ -72,7 +74,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.page { min-height: 100vh; background: #0f0f1a; padding-bottom: 140rpx; }
+.page { background: #0f0f1a; }
 .info { padding: 32rpx; }
 .name { font-size: 36rpx; font-weight: 700; color: #fff; }
 .price-row { margin: 16rpx 0; display: flex; align-items: baseline; gap: 16rpx; }
@@ -90,10 +92,7 @@ onMounted(() => {
   border-radius: 12rpx;
 }
 .footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  flex-shrink: 0;
   display: flex;
   gap: 20rpx;
   padding: 24rpx 32rpx;

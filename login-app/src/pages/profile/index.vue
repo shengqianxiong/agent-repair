@@ -2,6 +2,7 @@
   <view class="page">
     <u-navbar title="我的" :autoBack="false" bgColor="#1a1a2e" titleStyle="color:#fff"></u-navbar>
 
+    <scroll-view scroll-y class="page-body">
     <view class="user-header" @click="goMember">
       <u-avatar :src="userInfo.avatar || ''" size="64"></u-avatar>
       <view class="user-info">
@@ -34,6 +35,7 @@
       <u-cell title="团购核销" icon="scan" isLink @click="goPage('/pages/coupon/verify')"></u-cell>
       <u-cell title="消息通知" icon="bell" isLink @click="goPage('/pages/notification/list')"></u-cell>
     </u-cell-group>
+    </scroll-view>
 
     <app-tabbar current="profile"></app-tabbar>
   </view>
@@ -83,9 +85,7 @@ onPullDownRefresh(async () => {
 
 <style lang="scss" scoped>
 .page {
-  min-height: 100vh;
   background: #0f0f1a;
-  padding-bottom: 120rpx;
 }
 .user-header {
   display: flex;

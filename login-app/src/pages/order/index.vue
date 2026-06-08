@@ -160,13 +160,12 @@ onPullDownRefresh(async () => {
 
 <style lang="scss" scoped>
 .page {
-  min-height: 100vh;
   background: #0f0f1a;
-  padding-bottom: 200rpx;
 }
 .main {
   display: flex;
-  height: calc(100vh - 88rpx - 200rpx);
+  flex: 1;
+  height: 0;
 }
 .category-panel {
   width: 180rpx;
@@ -206,17 +205,14 @@ onPullDownRefresh(async () => {
 .product-bottom { display: flex; justify-content: space-between; align-items: center; }
 .price { color: #f59e0b; font-size: 32rpx; font-weight: 700; }
 .cart-bar {
-  position: fixed;
-  left: 24rpx;
-  right: 24rpx;
-  bottom: 120rpx;
+  flex-shrink: 0;
+  margin: 0 24rpx 16rpx;
   background: #1a1a2e;
   border-radius: 48rpx;
   padding: 16rpx 24rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 99;
 }
 .cart-left {
   position: relative;
