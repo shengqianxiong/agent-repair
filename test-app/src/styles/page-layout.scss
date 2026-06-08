@@ -1,0 +1,26 @@
+/* 全端固定视口页面布局：禁止 page 级滚动，内容区用 scroll-view */
+
+@mixin page-fixed {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* #ifdef H5 */
+  height: 100%;
+  /* #endif */
+}
+
+@mixin page-scroll-area {
+  flex: 1;
+  height: 0;
+  overflow: hidden;
+}
+
+.page-fixed {
+  @include page-fixed;
+}
+
+.page-body {
+  @include page-scroll-area;
+}
