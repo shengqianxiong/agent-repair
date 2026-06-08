@@ -1,0 +1,26 @@
+{
+  "name": "云享生活",
+  "appid": "__UNI__JIUBA",
+  "description": "jiuba 酒吧点餐用户端",
+  "versionName": "3.4.0",
+  "versionCode": "340",
+  "transformPx": false,
+  "h5": {
+    "router": {
+      "mode": "hash"
+    },
+    "devServer": {
+      "port": 8080
+    }
+  },
+  "mp-weixin": {
+    "appid": "",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "minified": true
+    },
+    "usingComponents": true
+  },
+  "vueVersion": "3"
+}
