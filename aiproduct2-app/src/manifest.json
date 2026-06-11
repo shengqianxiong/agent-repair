@@ -1,0 +1,30 @@
+{
+  "name": "aiProduct2旧衣回收",
+  "appid": "__UNI__AIPRODUCT2APP",
+  "description": "旧衣服回收用户端小程序",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-app",
+    "compilerVersion": 3
+  },
+  "quickapp": {},
+  "mp-weixin": {
+    "appid": "",
+    "setting": {
+      "urlCheck": false
+    },
+    "usingComponents": true
+  },
+  "h5": {
+    "router": {
+      "mode": "hash"
+    },
+    "devServer": {
+      "port": 8080
+    },
+    "title": "aiProduct2 旧衣回收"
+  }
+}

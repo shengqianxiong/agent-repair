@@ -1,0 +1,31 @@
+.page-container {
+  min-height: 100vh;
+  background: var(--color-page-bg);
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.card-box {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+.chip {
+  padding: 12rpx 20rpx;
+  border-radius: 28rpx;
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  background: #f0f2f4;
+}
+
+.chip-active {
+  color: #fff;
+  background: var(--color-primary);
+}

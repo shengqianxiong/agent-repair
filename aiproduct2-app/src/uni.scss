@@ -1,0 +1,29 @@
+@import 'uview-plus/theme.scss';
+
+:root {
+  --color-primary: #2eae5e;
+  --color-primary-deep: #1f8c48;
+  --color-secondary: #2f89ea;
+  --color-page-bg: #f4f6f8;
+  --color-card-bg: #ffffff;
+  --color-text-primary: #1f2329;
+  --color-text-secondary: #5f6368;
+  --color-text-light: #9aa0a6;
+  --color-border: #e9edf1;
+  --color-warning: #ff8a00;
+  --color-danger: #e34d59;
+  --radius-xl: 24rpx;
+  --radius-lg: 20rpx;
+  --radius-md: 16rpx;
+  --shadow-card: 0 6rpx 20rpx rgba(31, 35, 41, 0.06);
+}
+
+$u-primary: #2eae5e;
+$u-main-color: #1f2329;
+$u-content-color: #5f6368;
+$u-tips-color: #9aa0a6;
+$u-border-color: #e9edf1;
+$u-bg-color: #f4f6f8;
+$u-warning: #ff8a00;
+$u-success: #2eae5e;
+$u-error: #e34d59;
