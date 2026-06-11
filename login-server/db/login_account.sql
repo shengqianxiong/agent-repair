@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS `login_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='登录Token表';
 
 -- 初始账号：admin/admin123（管理员）、user/user123（普通用户）
--- MD5: admin123 -> 0192023a7bbd73250516f069df18b500, user123 -> 6ad14ba9986e3615423dfca256d04aa3
+-- MD5: admin123 -> 0192023a7bbd73250516f069df18b500, user123 -> 6ad14ba9986e3615423dfca256d04e3f
 INSERT INTO `login_account` (`account`, `password`, `status`, `role`) VALUES
 ('admin', '0192023a7bbd73250516f069df18b500', 1, 1),
-('user', '6ad14ba9986e3615423dfca256d04aa3', 1, 0)
-ON DUPLICATE KEY UPDATE `account` = VALUES(`account`);
+('user', '6ad14ba9986e3615423dfca256d04e3f', 1, 0)
+ON DUPLICATE KEY UPDATE `password` = VALUES(`password`);
