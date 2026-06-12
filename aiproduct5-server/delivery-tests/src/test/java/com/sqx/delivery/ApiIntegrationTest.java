@@ -109,6 +109,73 @@ class ApiIntegrationTest {
                 .andExpect(jsonPath("$.code").value(401));
     }
 
+    @Test
+    @DisplayName("豆评助手 E2E - 扫码→任务→提交→审核通过")
+    void reviewFlow_endToEnd_shouldWork() throws Exception {
+        mockMvc.perform(get("/app/activity/by-code").param("code", "DP20260611"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(0))
+                .andExpect(jsonPath("$.data.productName").value("招牌厚乳拿铁"));
+
+        String startBody = "{\"activityId\":10001,\"userIdentifier\":\"visitor_e2e_001\"}";
+        String startResponse = mockMvc.perform(post("/app/task/start")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(startBody))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(0))
+                .andReturn().getResponse().getContentAsString();
+
+        JsonNode startNode = objectMapper.readTree(startResponse).path("data");
+        long taskId = startNode.path("taskId").asLong();
+
+        String submitBody = "{\"taskId\":" + taskId
+                + ",\"activityId\":10001,\"screenshotUrl\":\"https://example.com/review.png\""
+                + ",\"userIdentifier\":\"visitor_e2e_001\"}";
+        String submitResponse = mockMvc.perform(post("/app/task/submit")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(submitBody))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(0))
+                .andExpect(jsonPath("$.data.status").value("auditing"))
+                .andReturn().getResponse().getContentAsString();
+
+        long rebateId = objectMapper.readTree(submitResponse).path("data").path("rebateId").asLong();
+
+        mockMvc.perform(get("/app/user/summary").param("userIdentifier", "visitor_e2e_001"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(0))
+                .andExpect(jsonPath("$.data.pendingCount").value(1));
+
+        mockMvc.perform(get("/admin/verify/list").param("status", "auditing"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(0))
+                .andExpect(jsonPath("$.data.total").value(2));
+
+        String passBody = "{\"verifyId\":" + rebateId + "}";
+        mockMvc.perform(post("/admin/verify/pass")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(passBody))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(0));
+
+        mockMvc.perform(get("/app/rebate/detail").param("rebateId", String.valueOf(rebateId)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(0))
+                .andExpect(jsonPath("$.data.status").value("paid"));
+    }
+
+    @Test
+    @DisplayName("管理端活动筛选 - 关键词与状态过滤")
+    void adminActivityList_filter_shouldReturnFilteredResults() throws Exception {
+        mockMvc.perform(get("/admin/activity/list")
+                        .param("keyword", "拿铁")
+                        .param("status", "1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(0))
+                .andExpect(jsonPath("$.data.total").value(1))
+                .andExpect(jsonPath("$.data.list[0].productName").value("招牌厚乳拿铁"));
+    }
+
     private List<ApiCase> loadApiCases() throws Exception {
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("api-cases.json")) {
             if (inputStream == null) {
