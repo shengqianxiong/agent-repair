@@ -1,0 +1,82 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^u-(.*)": "uview-plus/components/u-$1/u-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/task/index",
+      "style": {
+        "navigationBarTitleText": "豆评任务",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/task/submit",
+      "style": {
+        "navigationBarTitleText": "提交评价",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/task/result",
+      "style": {
+        "navigationBarTitleText": "提交结果",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/user/center",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/user/records",
+      "style": {
+        "navigationBarTitleText": "评价记录",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/rebate/detail",
+      "style": {
+        "navigationBarTitleText": "返利详情",
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "豆评助手",
+    "navigationBarBackgroundColor": "#f6f8fc",
+    "backgroundColor": "#f6f8fc"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#98a2b3",
+    "selectedColor": "#1463ff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/task/index",
+        "text": "任务"
+      },
+      {
+        "pagePath": "pages/user/records",
+        "text": "记录"
+      },
+      {
+        "pagePath": "pages/user/center",
+        "text": "我的"
+      }
+    ]
+  }
+}
