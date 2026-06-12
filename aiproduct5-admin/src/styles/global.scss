@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--dp-bg-page);
+  color: var(--dp-text-primary);
+}
+
+.page-card {
+  background: var(--dp-bg-card);
+  border-radius: var(--dp-radius-lg);
+  padding: var(--dp-spacing-md);
+  box-shadow: var(--dp-shadow-card);
+}
+
+.search-bar {
+  margin-bottom: var(--dp-spacing-md);
+  padding-bottom: var(--dp-spacing-md);
+  border-bottom: 1px solid var(--dp-border-light);
+}
+
+.table-toolbar {
+  margin-bottom: var(--dp-spacing-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .toolbar-title {
+    font-size: var(--dp-font-subtitle);
+    font-weight: 600;
+    color: var(--dp-text-primary);
+  }
+}
+
+.pagination-wrap {
+  margin-top: var(--dp-spacing-md);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stat-card {
+  border-radius: var(--dp-radius-lg);
+  border: none;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: var(--dp-shadow-hover);
+  }
+
+  .stat-label {
+    color: var(--dp-text-secondary);
+    font-size: var(--dp-font-body);
+  }
+
+  .stat-value {
+    margin-top: var(--dp-spacing-xs);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dp-text-primary);
+  }
+
+  .stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--dp-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--dp-primary), var(--dp-primary-light));
+  }
+}
+
+.el-button--primary {
+  --el-button-bg-color: var(--dp-primary);
+  --el-button-border-color: var(--dp-primary);
+  --el-button-hover-bg-color: var(--dp-primary-light);
+  --el-button-hover-border-color: var(--dp-primary-light);
+  --el-button-active-bg-color: var(--dp-primary-dark);
+  --el-button-active-border-color: var(--dp-primary-dark);
+}
+
+.empty-state {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--dp-text-secondary);
+}
