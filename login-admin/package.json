@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm install --no-fund --no-audit",
     "build": "vite build",
     "preview": "vite preview"
   },
