@@ -301,6 +301,8 @@ async function resolveCsdnEditorPublishButton(page: Page) {
     '.article-bar button.btn-publish',
     '.article-bar .btn-publish',
     'button[class*="btn-publish"]',
+    'xpath=//button[contains(@class,"btn-publish") and contains(normalize-space(.),"发布")]',
+    'xpath=//div[contains(@class,"operate-box")]//button[contains(normalize-space(.),"发布文章")]',
   ]
   for (const selector of selectors) {
     const locator = page.locator(selector).first()
@@ -314,12 +316,26 @@ async function resolveCsdnEditorPublishButton(page: Page) {
   }
 
   const byRole = page.getByRole('button', { name: /发布文章|发布/ }).first()
-  if (await byRole.count()) return byRole
+  if (await byRole.count()) {
+    try {
+      await byRole.waitFor({ state: 'visible', timeout: 8000 })
+      return byRole
+    } catch {
+      // try next
+    }
+  }
 
   const byText = page.locator('button').filter({ hasText: /发布文章/ }).first()
-  if (await byText.count()) return byText
+  if (await byText.count()) {
+    try {
+      await byText.waitFor({ state: 'visible', timeout: 8000 })
+      return byText
+    } catch {
+      // try next
+    }
+  }
 
-  return page.locator('button.btn.btn-publish, button.btn-publish').first()
+  throw new Error('未找到 CSDN 编辑器发布按钮，请确认编辑器已加载且已登录')
 }
 
 export async function fillCsdnPublishDialog(page: Page, keyword: string, summary: string, coverImage?: string) {
