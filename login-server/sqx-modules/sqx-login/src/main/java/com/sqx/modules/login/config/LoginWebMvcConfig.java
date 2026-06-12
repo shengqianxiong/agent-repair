@@ -10,12 +10,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * Web MVC 配置，注册鉴权拦截器
  */
 @Configuration
-public class WebMvcConfig implements WebMvcConfigurer {
+public class LoginWebMvcConfig implements WebMvcConfigurer {
 
     private final LoginInterceptor loginInterceptor;
     private final AdminAuthInterceptor adminAuthInterceptor;
 
-    public WebMvcConfig(LoginInterceptor loginInterceptor, AdminAuthInterceptor adminAuthInterceptor) {
+    public LoginWebMvcConfig(LoginInterceptor loginInterceptor, AdminAuthInterceptor adminAuthInterceptor) {
         this.loginInterceptor = loginInterceptor;
         this.adminAuthInterceptor = adminAuthInterceptor;
     }

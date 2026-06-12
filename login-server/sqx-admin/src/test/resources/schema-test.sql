@@ -17,4 +17,4 @@ CREATE TABLE IF NOT EXISTS login_token (
 
 INSERT INTO login_account (account, password, status, role) VALUES
 ('admin', '0192023a7bbd73250516f069df18b500', 1, 1),
-('user', '6ad14ba9986e3615423dfca256d04aa3', 1, 0);
+('user', '6ad14ba9986e3615423dfca256d04e3f', 1, 0);

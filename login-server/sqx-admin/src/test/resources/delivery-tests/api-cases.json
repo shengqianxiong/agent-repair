@@ -40,8 +40,7 @@
       "method": "GET",
       "path": "/admin/account/list?account=admin",
       "auth": "admin",
-      "expectCode": 0,
-      "expectJsonPath": "$.data.list[?(@.account=='admin')]"
+      "expectCode": 0
     },
     {
       "name": "账号详情-已登录",

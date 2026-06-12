@@ -9,6 +9,9 @@ import com.sqx.common.utils.UserContext;
 import com.sqx.modules.login.db.entity.LoginAccount;
 import com.sqx.modules.login.db.mapper.LoginAccountMapper;
 import com.sqx.modules.login.service.TokenService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -62,6 +65,10 @@ public class AdminAuthInterceptor implements HandlerInterceptor {
             throw new BusinessException("账号已被禁用");
         }
         UserContext.setUserId(accountId);
+        Subject subject = SecurityUtils.getSubject();
+        if (!subject.isAuthenticated()) {
+            subject.login(new UsernamePasswordToken(account.getAccount(), account.getPassword()));
+        }
         return true;
     }
 
@@ -69,5 +76,9 @@ public class AdminAuthInterceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
                                 Object handler, Exception ex) {
         UserContext.clear();
+        Subject subject = SecurityUtils.getSubject();
+        if (subject != null && subject.isAuthenticated()) {
+            subject.logout();
+        }
     }
 }
