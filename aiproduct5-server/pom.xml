@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sqx</groupId>
-    <artifactId>login-server</artifactId>
+    <artifactId>aiproduct5-server</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>login-server</name>
-    <description>极简登录功能服务端</description>
+    <name>aiproduct5-server</name>
+    <description>aiProduct5 服务端</description>
 
     <modules>
         <module>sqx-common</module>
@@ -93,6 +93,25 @@
     </dependencyManagement>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>

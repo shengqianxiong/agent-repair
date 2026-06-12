@@ -1,11 +1,11 @@
 server:
-  port: 9295
+  port: 9294
   servlet:
     context-path: /sqx_fast
 
 spring:
   application:
-    name: login-server
+    name: aiproduct5-server
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/login?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
