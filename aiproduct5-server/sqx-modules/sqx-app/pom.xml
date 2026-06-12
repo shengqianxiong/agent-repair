@@ -10,7 +10,7 @@
     </parent>
     <artifactId>sqx-app</artifactId>
     <name>sqx-app</name>
-    <description>酒吧点餐业务模块</description>
+    <description>豆评助手业务模块</description>
 
     <dependencies>
         <dependency>

@@ -13,7 +13,7 @@ export default defineConfig({
     port: 5174,
     proxy: {
       '/sqx_fast': {
-        target: 'http://127.0.0.1:9295',
+        target: 'http://127.0.0.1:9294',
         changeOrigin: true
       }
     }
