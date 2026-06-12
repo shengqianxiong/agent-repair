@@ -25,7 +25,14 @@ public class AdminRealm extends AuthorizingRealm {
                 "login:account:detail",
                 "login:account:save",
                 "login:account:update",
-                "login:account:delete"
+                "login:account:delete",
+                "bar:product:list",
+                "bar:product:detail",
+                "bar:product:save",
+                "bar:product:update",
+                "bar:product:delete",
+                "bar:category:list",
+                "bar:category:save"
         )));
         return info;
     }

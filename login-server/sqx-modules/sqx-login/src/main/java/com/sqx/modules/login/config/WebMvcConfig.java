@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * Web MVC 配置，注册鉴权拦截器
  */
-@Configuration
+@Configuration("loginWebMvcConfig")
 public class WebMvcConfig implements WebMvcConfigurer {
 
     private final LoginInterceptor loginInterceptor;

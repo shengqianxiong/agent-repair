@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * 全局 Web MVC 配置（跨域）
  */
-@Configuration
+@Configuration("frameworkWebMvcConfig")
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override

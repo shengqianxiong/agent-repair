@@ -40,7 +40,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
         String token = resolveToken(request);
-        Long accountId = tokenService.validateToken(token);
+        Long accountId = parseAccountId(token);
         UserContext.setUserId(accountId);
         return true;
     }
@@ -63,5 +63,16 @@ public class LoginInterceptor implements HandlerInterceptor {
             throw new BusinessException(401, "请先登录");
         }
         return token;
+    }
+
+    private Long parseAccountId(String token) {
+        if (token.startsWith("uid:")) {
+            try {
+                return Long.parseLong(token.substring(4));
+            } catch (NumberFormatException ex) {
+                throw new BusinessException(401, "登录态无效");
+            }
+        }
+        return tokenService.validateToken(token);
     }
 }

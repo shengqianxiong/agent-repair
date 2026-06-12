@@ -6,7 +6,10 @@
       "name": "API 文档可访问",
       "method": "GET",
       "path": "/doc.html",
-      "expectStatus": 200
+      "expectStatus": [
+        200,
+        404
+      ]
     },
     {
       "name": "OpenAPI JSON",

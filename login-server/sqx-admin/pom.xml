@@ -18,6 +18,10 @@
             <artifactId>sqx-login</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.sqx</groupId>
+            <artifactId>sqx-app</artifactId>
+        </dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
@@ -32,6 +36,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.7.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -39,6 +48,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
