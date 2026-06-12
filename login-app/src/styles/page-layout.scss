@@ -1,0 +1,33 @@
+/**
+ * 页面固定布局：禁止页面级滚动，兼容微信小程序 / H5 / APP
+ * 可滚动区域使用 scroll-view + .page-scroll / .page-body
+ */
+page {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* #ifdef H5 */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+/* #endif */
+
+.page {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.page-scroll,
+.page-body {
+  flex: 1;
+  height: 0;
+  width: 100%;
+}
