@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "npm install --no-fund --no-audit",
-    "build": "vite build",
+    "prebuild": "npm install --no-fund --no-audit --include=dev",
+    "build": "npx vite build",
     "preview": "vite preview"
   },
   "dependencies": {

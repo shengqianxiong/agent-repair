@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "极简登录用户端",
   "scripts": {
+    "prebuild": "npm install --no-fund --no-audit --include=dev",
+    "prebuild:h5": "npm install --no-fund --no-audit --include=dev",
+    "prebuild:mp-weixin": "npm install --no-fund --no-audit --include=dev",
     "dev:mp-weixin": "uni -p mp-weixin",
-    "build:mp-weixin": "uni build -p mp-weixin",
+    "build:mp-weixin": "npx uni build -p mp-weixin",
     "dev:h5": "uni",
-    "build:h5": "uni build"
+    "build:h5": "npx uni build"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-4010520240507001",
