@@ -1,10 +1,11 @@
 {
-  "name": "login-admin",
+  "name": "aiproduct5-admin",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm install --no-audit --no-fund",
     "build": "vite build",
     "preview": "vite preview"
   },
