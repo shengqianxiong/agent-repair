@@ -1,0 +1,14 @@
+{
+  "name": "agent-repair",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test:repair:shunqi": "tsc && node dist/tests/repair-shunqi.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "playwright": "^1.52.0",
+    "typescript": "^5.8.3"
+  }
+}
