@@ -1,0 +1,18 @@
+{
+  "name": "agent-repair",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "login:sohu": "tsx src/scripts/login-sohu.ts",
+    "login:baijiahao": "tsx src/scripts/login-baijiahao.ts",
+    "test:repair:sohu": "tsx src/scripts/test-repair-sohu.ts",
+    "test:repair:baijiahao": "tsx src/scripts/test-repair-baijiahao.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "playwright": "^1.52.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
