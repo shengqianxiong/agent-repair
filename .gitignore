@@ -7,3 +7,5 @@ unpackage/
 logs/
 *.log
 .DS_Store
+.auth/
+screenshots/
