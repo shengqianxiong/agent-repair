@@ -1,0 +1,6 @@
+* {
+  font-family: "WenQuanYi Micro Hei", "Noto Sans CJK SC", sans-serif !important;
+}
+.nodeLabel, .edgeLabel, .label, span, p {
+  font-family: "WenQuanYi Micro Hei", "Noto Sans CJK SC", sans-serif !important;
+}
