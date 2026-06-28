@@ -5,9 +5,11 @@
 ## 内容
 
 - `src/*.mmd`：8 张流程图的 Mermaid 源码
-- `赛事系统-关键流程图.md`：合并版（含全部 Mermaid 源码，可直接在支持 Mermaid 的编辑器中预览）
+- `赛事系统-关键流程图.md`：流程图合并版（含全部 Mermaid 源码）
+- `赛事系统-完整需求与设计文档.md`：完整需求与设计文档（定位+模块+开发计划+数据表+接口+页面原型+流程图+规则）
 - `theme.css` / `puppeteer.json`：渲染时的字体与沙箱配置
-- `make-pdf.js`：将渲染出的 PNG 合并为单个 PDF
+- `make-pdf.js`：将渲染出的 PNG 合并为单个 PDF（流程图合集）
+- `make-doc-pdf.js`：将完整文档 Markdown 渲染为 PDF（自动内嵌流程图）
 
 ## 流程图列表
 
@@ -32,8 +34,12 @@ for f in src/*.mmd; do
   npx mmdc -i "$f" -o "out/$name.svg" -b white -p puppeteer.json -C theme.css
 done
 
-# 合并为单个 PDF
+# 合并流程图为单个 PDF
 node make-pdf.js
+
+# 将完整需求文档渲染为 PDF（内嵌流程图）
+npm install marked
+node make-doc-pdf.js
 ```
 
 > 中文渲染依赖 CJK 字体（如 `WenQuanYi Micro Hei` 或 `Noto Sans CJK SC`），如缺失请先安装。
